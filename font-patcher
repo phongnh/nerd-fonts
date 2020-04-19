@@ -257,6 +257,10 @@ class font_patcher:
             additionalFontNameSuffix += " M"
             verboseAdditionalFontNameSuffix += " Mono"
 
+        print()
+        print(f'==> BEFORE: additionalFontNameSuffix = {additionalFontNameSuffix}')
+        print(f'==> BEFORE: verboseAdditionalFontNameSuffix = {verboseAdditionalFontNameSuffix}')
+
         # basically split the font name around the dash "-" to get the fontname and the style (e.g. Bold)
         # this does not seem very reliable so only use the style here as a fallback if the font does not
         # have an internal style defined (in sfnt_names)
@@ -264,8 +268,20 @@ class font_patcher:
         # using '([^-]*(?!.*-))' to get the item after the last dash "-"
         fontname, fallbackStyle = re.match("^([^-]*).*?([^-]*(?!.*-))$", self.sourceFont.fontname).groups()
 
+        print()
+        print(f'==> BEFORE: self.sourceFont.familyname = {self.sourceFont.familyname}')
+        print(f'==> BEFORE: self.sourceFont.fullname = {self.sourceFont.fullname}')
+        print(f'==> BEFORE: self.sourceFont.fontname = {self.sourceFont.fontname}')
+        print(f'==> BEFORE: fontname = {fontname}')
+
         # dont trust 'sourceFont.familyname'
         familyname = fontname
+
+        print()
+        print(f'==> DEFAULT: familyname = {familyname}')
+
+        print()
+        print(f'==> CHANGED: familyname = {familyname}')
 
         # fullname (filename) can always use long/verbose font name, even in windows
         if self.sourceFont.fullname != None:
@@ -274,6 +290,15 @@ class font_patcher:
             fullname = self.sourceFont.cidfontname + verboseAdditionalFontNameSuffix
 
         fontname = fontname + additionalFontNameSuffix.replace(" ", "")
+
+        print()
+        print(f'==> BEFORE: fullname = {fullname}')
+        print(f'==> BEFORE: fontname = {fontname}')
+
+        print()
+        print(f'==> AFTER: fullname = {fullname}')
+        print(f'==> AFTER: fontname = {fontname}')
+        print(f'==> AFTER: familyname = {familyname}')
 
         # let us try to get the 'style' from the font info in sfnt_names and fallback to the
         # parse fontname if it fails:
@@ -308,6 +333,12 @@ class font_patcher:
             familyname += " " + projectNameSingular
             if self.args.single:
                 familyname += " Mono"
+
+        print()
+        print(f'==> BEFORE: subFamily = {subFamily}')
+
+        print()
+        print(f'==> AFTER: subFamily = {subFamily}')
 
         # Don't truncate the subfamily to keep fontname unique.  MacOS treats fonts with
         # the same name as the same font, even if subFamily is different.
@@ -377,6 +408,17 @@ class font_patcher:
         self.sourceFont.familyname = " ".join(familyname.split())
         self.sourceFont.fullname   = " ".join(fullname.split())
         self.sourceFont.fontname   = " ".join(fontname.split())
+
+        print()
+        print('========================')
+        print('*** REGISTERING FONT ***')
+        print('========================')
+        print()
+        print(f'==> FINAL: fontame = {fontname}')
+        print(f'==> FINAL: familyname = {self.sourceFont.familyname}')
+        print(f'==> FINAL: fullname = {self.sourceFont.fullname}')
+        print(f'==> FINAL: subFamily = {subFamily}')
+        print()
 
         self.sourceFont.appendSFNTName(str('English (US)'), str('Preferred Family'), self.sourceFont.familyname)
         self.sourceFont.appendSFNTName(str('English (US)'), str('Family'), self.sourceFont.familyname)
