@@ -299,50 +299,6 @@ class font_patcher:
         print(f'==> AFTER: fontname = {fontname}')
         print(f'==> AFTER: familyname = {familyname}')
 
-        knownSubFamilies = (
-            'thin',
-            'Thin',
-            'Thin Italic',
-            'Thin Oblique',
-            'Extralight',
-            'Extralight Italic',
-            'Extralight Oblique',
-            'ExtraLight',
-            'ExtraLight Italic',
-            'ExtraLight Oblique',
-            'light',
-            'Light',
-            'Light Italic',
-            'Light Oblique',
-            'regular',
-            'Regular',
-            'medium',
-            'Medium',
-            'Medium Italic',
-            'Medium Oblique',
-            'Italic',
-            'Oblique',
-            'Semibold',
-            'Semibold Italic',
-            'Semibold Oblique',
-            'SemiBold',
-            'SemiBold Italic',
-            'SemiBold Oblique',
-            'bold',
-            'Bold',
-            'Bold Italic',
-            'Bold Oblique',
-            'Extrabold',
-            'Extrabold Italic',
-            'Extrabold Oblique',
-            'ExtraBold',
-            'ExtraBold Italic',
-            'ExtraBold Oblique',
-            'Heavy',
-            'Heavy Italic',
-            'Heavy Oblique',
-        )
-
         preferredStyles = ''
 
         # let us try to get the 'style' from the font info in sfnt_names and fallback to the
