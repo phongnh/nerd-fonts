@@ -350,13 +350,6 @@ class font_patcher:
         # let us try to get the 'style' from the font info in sfnt_names and fallback to the
         # parse fontname if it fails:
         try:
-            fontStyleNames = [x[1] for x in self.sourceFont.sfnt_names]
-
-            sfntNamesStringIDIndex = 2
-
-            subFamilyTupleIndex = fontStyleNames.index("Preferred Styles")
-            preferredStyles = self.sourceFont.sfnt_names[subFamilyTupleIndex][sfntNamesStringIDIndex]
-
             # search tuple:
             subFamilyTupleIndex = [x[1] for x in self.sourceFont.sfnt_names].index("SubFamily")
 
@@ -365,6 +358,13 @@ class font_patcher:
 
             # now we have the correct item:
             subFamily = self.sourceFont.sfnt_names[subFamilyTupleIndex][sfntNamesStringIDIndex]
+
+            try:
+                subFamilyTupleIndex = [x[1] for x in self.sourceFont.sfnt_names].index("Preferred Styles")
+                preferredStyles = self.sourceFont.sfnt_names[subFamilyTupleIndex][sfntNamesStringIDIndex]
+            except ValueError:
+                preferredStyles = subFamily
+
             print()
             print(f'--> FOUND: subFamily = {subFamily}')
             print(f'--> FOUND: preferredStyles = {preferredStyles}')
@@ -424,6 +424,8 @@ class font_patcher:
             'Heavy',
             'black',
             'Black',
+            'retina',
+            'Retina',
         )
 
         styleMappings = {
