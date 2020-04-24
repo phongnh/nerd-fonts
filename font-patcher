@@ -281,7 +281,53 @@ class font_patcher:
         print()
         print(f'==> DEFAULT: familyname = {familyname}')
 
+        #===============================================================================
+        # Customize Font Name
+        #===============================================================================
+
         UPDATE_FONT_SUB_FAMILY = os.environ.get('UPDATE_FONT_SUB_FAMILY', 'no') == 'yes'
+
+        if 'Iosevka' in self.sourceFont.familyname:
+            if 'Curly Slab' in self.sourceFont.familyname:
+                familyname = familyname + ' Curly Slab'
+                fontname = fontname + 'CurlySlab'
+            elif 'Curly' in self.sourceFont.familyname:
+                familyname = familyname + ' Curly'
+                fontname = fontname + 'Curly'
+            elif 'Fixed' in self.sourceFont.familyname:
+                familyname = familyname + ' Fixed'
+                fontname = fontname + 'Fixed'
+            elif 'Slab' in self.sourceFont.familyname:
+                familyname = familyname + ' Slab'
+                fontname = fontname + 'Slab'
+            elif 'Aile' in self.sourceFont.familyname:
+                familyname = familyname + ' Aile'
+                fontname = fontname + 'Aile'
+            elif 'Etoile' in self.sourceFont.familyname:
+                familyname = familyname + ' Etoile'
+                fontname = fontname + 'Etoile'
+            elif 'Sparkle' in self.sourceFont.familyname:
+                familyname = familyname + ' Sparkle'
+                fontname = fontname + 'Sparkle'
+        elif 'Inconsolata' in self.sourceFont.fullname:
+            if 'Semi Condensed' in self.sourceFont.fullname:
+                # Use Inconsolata as font name
+                pass
+                # familyname = familyname + ' Semi Condensed'
+                # fontname = fontname + 'SemiCondensed'
+            elif 'Condensed' in self.sourceFont.fullname:
+                familyname = familyname + ' Condensed'
+                fontname = fontname + 'Condensed'
+        elif self.sourceFont.fullname.startswith('M+'):
+            if '2m' in self.sourceFont.fullname:
+                familyname = 'M+ 2m'
+                fontname = fontname + '2m'
+            elif '1mn' in self.sourceFont.fullname:
+                familyname = 'M+ 1mn'
+                fontname = fontname + '1mn'
+            elif '1m' in self.sourceFont.fullname:
+                familyname = 'M+ 1m'
+                fontname = fontname + '1m'
 
         print()
         print(f'==> CHANGED: familyname = {familyname}')
@@ -335,6 +381,12 @@ class font_patcher:
             familyname += " " + projectNameAbbreviation
             fullname += " Windows Compatible"
 
+            # Shorten fontname
+            # fontname = fontname.replace('NerdFontCompleteMono', 'NFCM')
+            # fontname = fontname.replace('NerdFontComplete', 'NFC')
+            # fontname = fontname.replace('NerdFontMono', 'NFM')
+            # fontname = fontname.replace('NerdFont', 'NF')
+
             # now make sure less than 32 characters name length
             if len(fontname) > maxFontLength:
                 fontname = fontname[:maxFontLength]
@@ -349,13 +401,82 @@ class font_patcher:
         print(f'==> BEFORE: subFamily = {subFamily}')
         print(f'==> BEFORE: preferredStyles = {preferredStyles}')
 
+
+        knownStyles = (
+            'thin',
+            'Thin',
+            'Extralight',
+            'ExtraLight',
+            'light',
+            'Light',
+            'regular',
+            'Regular',
+            'medium',
+            'Medium',
+            'Italic',
+            'Oblique',
+            'Semibold',
+            'SemiBold',
+            'bold',
+            'Bold',
+            'Extrabold',
+            'ExtraBold',
+            'Heavy',
+            'black',
+            'Black',
+        )
+
+        styleMappings = {
+            'thin':    'thin',
+            'light':   'Light',
+            'regular': 'Regular',
+            'medium':  'Medium',
+            'bold':    'Bold',
+            }
+
+        prefixes = {
+            'SemiCondensed': '',
+            'Semi Condensed': '',
+            'Condensed': '',
+            }
+
+        def update_sub_family(sub_family):
+            for key, val in styleMappings.items():
+                sub_family = sub_family.replace(key, val)
+            for key, val in prefixes.items():
+                sub_family = sub_family.replace(key, val)
+            return ''.join([ s for s in sub_family.split() if s in knownStyles ])
+
+
+        if fullname.startswith('Inconsolata Condensed'):
+            subFamily = update_sub_family(subFamily)
+            preferredStyles = update_sub_family(preferredStyles)
+        elif fullname.startswith('Inconsolata Semi Condensed'):
+            subFamily = update_sub_family(subFamily)
+            preferredStyles = update_sub_family(preferredStyles)
+        elif UPDATE_FONT_SUB_FAMILY:
+            if fullname.startswith('M+'):
+                subFamily = update_sub_family(subFamily)
+                preferredStyles = update_sub_family(preferredStyles)
+
+        subFamily = subFamily.strip()
+        if subFamily == '':
+            subFamily = 'Regular'
+
+        preferredStyles = preferredStyles.strip()
+        if preferredStyles == '':
+            preferredStyles = 'Regular'
+
         print()
         print(f'==> AFTER: subFamily = {subFamily}')
         print(f'==> AFTER: preferredStyles = {preferredStyles}')
 
         # Don't truncate the subfamily to keep fontname unique.  MacOS treats fonts with
         # the same name as the same font, even if subFamily is different.
-        fontname += '-' + subFamily
+        if subFamily != preferredStyles:
+            fontname += '-' + preferredStyles
+        else:
+            fontname += '-' + subFamily
 
         # rename font
         #
@@ -417,6 +538,12 @@ class font_patcher:
         fullname   = replace_font_name(fullname,   additionalFontNameReplacements2)
         fontname   = replace_font_name(fontname,   additionalFontNameReplacements2)
 
+        if UPDATE_FONT_SUB_FAMILY:
+            if fullname.startswith('M+'):
+                fullname = replace_font_name(fullname, styleMappings)
+                fullname = fullname + ' (Extra)'
+                fontname = replace_font_name(fontname, styleMappings)
+
         # replace any extra whitespace characters:
         self.sourceFont.familyname = " ".join(familyname.split())
         self.sourceFont.fullname   = " ".join(fullname.split())
@@ -440,6 +567,9 @@ class font_patcher:
         self.sourceFont.appendSFNTName(str('English (US)'), str('Compatible Full'), self.sourceFont.fullname)
         self.sourceFont.appendSFNTName(str('English (US)'), str('SubFamily'), subFamily)
         self.sourceFont.appendSFNTName(str('English (US)'), str('Preferred Styles'), preferredStyles)
+
+        print(f'==> FINAL: self.sourceFont.sfnt_names = {self.sourceFont.sfnt_names}')
+        print()
 
         self.sourceFont.comment = projectInfo
         self.sourceFont.fontlog = projectInfo
