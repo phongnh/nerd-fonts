@@ -281,6 +281,8 @@ class font_patcher:
         print()
         print(f'==> DEFAULT: familyname = {familyname}')
 
+        UPDATE_FONT_SUB_FAMILY = os.environ.get('UPDATE_FONT_SUB_FAMILY', 'no') == 'yes'
+
         print()
         print(f'==> CHANGED: familyname = {familyname}')
 
@@ -341,31 +343,29 @@ class font_patcher:
             'Heavy Oblique',
         )
 
+        preferredStyles = ''
+
         # let us try to get the 'style' from the font info in sfnt_names and fallback to the
         # parse fontname if it fails:
         try:
+            fontStyleNames = [x[1] for x in self.sourceFont.sfnt_names]
+
+            sfntNamesStringIDIndex = 2
+
+            subFamilyTupleIndex = fontStyleNames.index("Preferred Styles")
+            preferredStyles = self.sourceFont.sfnt_names[subFamilyTupleIndex][sfntNamesStringIDIndex]
+
             # search tuple:
             subFamilyTupleIndex = [x[1] for x in self.sourceFont.sfnt_names].index("SubFamily")
 
             # String ID is at the second index in the Tuple lists
             sfntNamesStringIDIndex = 2
 
-            fontStyleNames = [x[1] for x in self.sourceFont.sfnt_names]
-
-            subFamilyTupleIndex = fontStyleNames.index("WWS Subfamily")
-
-            if subFamilyTupleIndex is not None:
-                subFamily = self.sourceFont.sfnt_names[subFamilyTupleIndex][sfntNamesStringIDIndex]
-                if subFamily is None or subFamily not in knownSubFamilies:
-                    subFamilyTupleIndex = None
-
-            if subFamilyTupleIndex is None:
-                subFamilyTupleIndex = fontStyleNames.index("SubFamily")
-
             # now we have the correct item:
             subFamily = self.sourceFont.sfnt_names[subFamilyTupleIndex][sfntNamesStringIDIndex]
             print()
             print(f'--> FOUND: subFamily = {subFamily}')
+            print(f'--> FOUND: preferredStyles = {preferredStyles}')
         except IndexError:
             sys.stderr.write("{}: Could not find 'SubFamily' for given font, falling back to parsed fontname\n".format(projectName))
             subFamily = fallbackStyle
@@ -391,9 +391,11 @@ class font_patcher:
 
         print()
         print(f'==> BEFORE: subFamily = {subFamily}')
+        print(f'==> BEFORE: preferredStyles = {preferredStyles}')
 
         print()
         print(f'==> AFTER: subFamily = {subFamily}')
+        print(f'==> AFTER: preferredStyles = {preferredStyles}')
 
         # Don't truncate the subfamily to keep fontname unique.  MacOS treats fonts with
         # the same name as the same font, even if subFamily is different.
@@ -469,17 +471,20 @@ class font_patcher:
         print('*** REGISTERING FONT ***')
         print('========================')
         print()
-        print('==> UPDATE_FONT_SUB_FAMILY = {}'.format(os.environ.get('UPDATE_FONT_SUB_FAMILY'), 'no'))
+        print(f'==> UPDATE_FONT_SUB_FAMILY = {UPDATE_FONT_SUB_FAMILY}')
         print(f'==> FINAL: fontame = {fontname}')
         print(f'==> FINAL: familyname = {self.sourceFont.familyname}')
         print(f'==> FINAL: fullname = {self.sourceFont.fullname}')
         print(f'==> FINAL: subFamily = {subFamily}')
+        print(f'==> FINAL: preferredStyles = {preferredStyles}')
         print()
 
         self.sourceFont.appendSFNTName(str('English (US)'), str('Preferred Family'), self.sourceFont.familyname)
         self.sourceFont.appendSFNTName(str('English (US)'), str('Family'), self.sourceFont.familyname)
         self.sourceFont.appendSFNTName(str('English (US)'), str('Compatible Full'), self.sourceFont.fullname)
         self.sourceFont.appendSFNTName(str('English (US)'), str('SubFamily'), subFamily)
+        self.sourceFont.appendSFNTName(str('English (US)'), str('Preferred Styles'), preferredStyles)
+
         self.sourceFont.comment = projectInfo
         self.sourceFont.fontlog = projectInfo
 
