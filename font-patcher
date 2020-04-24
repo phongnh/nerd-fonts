@@ -272,6 +272,7 @@ class font_patcher:
         print(f'==> BEFORE: self.sourceFont.familyname = {self.sourceFont.familyname}')
         print(f'==> BEFORE: self.sourceFont.fullname = {self.sourceFont.fullname}')
         print(f'==> BEFORE: self.sourceFont.fontname = {self.sourceFont.fontname}')
+        print(f'==> BEFORE: self.sourceFont.sfnt_names = {self.sourceFont.sfnt_names}')
         print(f'==> BEFORE: fontname = {fontname}')
 
         # dont trust 'sourceFont.familyname'
@@ -292,13 +293,53 @@ class font_patcher:
         fontname = fontname + additionalFontNameSuffix.replace(" ", "")
 
         print()
-        print(f'==> BEFORE: fullname = {fullname}')
-        print(f'==> BEFORE: fontname = {fontname}')
-
-        print()
         print(f'==> AFTER: fullname = {fullname}')
         print(f'==> AFTER: fontname = {fontname}')
         print(f'==> AFTER: familyname = {familyname}')
+
+        knownSubFamilies = (
+            'thin',
+            'Thin',
+            'Thin Italic',
+            'Thin Oblique',
+            'Extralight',
+            'Extralight Italic',
+            'Extralight Oblique',
+            'ExtraLight',
+            'ExtraLight Italic',
+            'ExtraLight Oblique',
+            'light',
+            'Light',
+            'Light Italic',
+            'Light Oblique',
+            'regular',
+            'Regular',
+            'medium',
+            'Medium',
+            'Medium Italic',
+            'Medium Oblique',
+            'Italic',
+            'Oblique',
+            'Semibold',
+            'Semibold Italic',
+            'Semibold Oblique',
+            'SemiBold',
+            'SemiBold Italic',
+            'SemiBold Oblique',
+            'bold',
+            'Bold',
+            'Bold Italic',
+            'Bold Oblique',
+            'Extrabold',
+            'Extrabold Italic',
+            'Extrabold Oblique',
+            'ExtraBold',
+            'ExtraBold Italic',
+            'ExtraBold Oblique',
+            'Heavy',
+            'Heavy Italic',
+            'Heavy Oblique',
+        )
 
         # let us try to get the 'style' from the font info in sfnt_names and fallback to the
         # parse fontname if it fails:
@@ -309,8 +350,22 @@ class font_patcher:
             # String ID is at the second index in the Tuple lists
             sfntNamesStringIDIndex = 2
 
+            fontStyleNames = [x[1] for x in self.sourceFont.sfnt_names]
+
+            subFamilyTupleIndex = fontStyleNames.index("WWS Subfamily")
+
+            if subFamilyTupleIndex is not None:
+                subFamily = self.sourceFont.sfnt_names[subFamilyTupleIndex][sfntNamesStringIDIndex]
+                if subFamily is None or subFamily not in knownSubFamilies:
+                    subFamilyTupleIndex = None
+
+            if subFamilyTupleIndex is None:
+                subFamilyTupleIndex = fontStyleNames.index("SubFamily")
+
             # now we have the correct item:
             subFamily = self.sourceFont.sfnt_names[subFamilyTupleIndex][sfntNamesStringIDIndex]
+            print()
+            print(f'--> FOUND: subFamily = {subFamily}')
         except IndexError:
             sys.stderr.write("{}: Could not find 'SubFamily' for given font, falling back to parsed fontname\n".format(projectName))
             subFamily = fallbackStyle
@@ -414,6 +469,7 @@ class font_patcher:
         print('*** REGISTERING FONT ***')
         print('========================')
         print()
+        print('==> UPDATE_FONT_SUB_FAMILY = {}'.format(os.environ.get('UPDATE_FONT_SUB_FAMILY'), 'no'))
         print(f'==> FINAL: fontame = {fontname}')
         print(f'==> FINAL: familyname = {self.sourceFont.familyname}')
         print(f'==> FINAL: fullname = {self.sourceFont.fullname}')
