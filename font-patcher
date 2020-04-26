@@ -318,6 +318,8 @@ class font_patcher:
             elif 'Condensed' in self.sourceFont.fullname:
                 familyname = familyname + ' Condensed'
                 fontname = fontname + 'Condensed'
+        elif 'JetBrains' in self.sourceFont.fullname:
+            familyname = 'JetBrains Mono'
         elif self.sourceFont.fullname.startswith('M+'):
             if '2m' in self.sourceFont.fullname:
                 familyname = 'M+ 2m'
