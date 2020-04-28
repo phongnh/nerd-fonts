@@ -285,6 +285,7 @@ class font_patcher:
         # Customize Font Name
         #===============================================================================
 
+        UPDATE_FONT_NAME       = os.environ.get('UPDATE_FONT_NAME', 'no') == 'yes'
         UPDATE_FONT_SUB_FAMILY = os.environ.get('UPDATE_FONT_SUB_FAMILY', 'no') == 'yes'
 
         if 'Iosevka' in self.sourceFont.familyname:
@@ -318,7 +319,7 @@ class font_patcher:
             elif 'Condensed' in self.sourceFont.fullname:
                 familyname = familyname + ' Condensed'
                 fontname = fontname + 'Condensed'
-        elif 'JetBrains' in self.sourceFont.fullname:
+        elif 'JetBrains' in self.sourceFont.fullname and UPDATE_FONT_NAME:
             familyname = 'JetBrains Mono'
         elif self.sourceFont.fullname.startswith('M+'):
             if '2m' in self.sourceFont.fullname:
@@ -558,6 +559,7 @@ class font_patcher:
         print('*** REGISTERING FONT ***')
         print('========================')
         print()
+        print(f'==> UPDATE_FONT_NAME       = {UPDATE_FONT_NAME}')
         print(f'==> UPDATE_FONT_SUB_FAMILY = {UPDATE_FONT_SUB_FAMILY}')
         print(f'==> FINAL: fontame = {fontname}')
         print(f'==> FINAL: familyname = {self.sourceFont.familyname}')
