@@ -342,6 +342,9 @@ class font_patcher:
         else:
             fullname = self.sourceFont.cidfontname + verboseAdditionalFontNameSuffix
 
+        if 'JetBrains' in self.sourceFont.fullname and not UPDATE_FONT_NAME:
+            fullname = fullname.replace('JetBrains Mono', 'JetBrainsMono')
+
         fontname = fontname + additionalFontNameSuffix.replace(" ", "")
 
         print()
