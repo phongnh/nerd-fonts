@@ -319,9 +319,9 @@ class font_patcher:
             elif 'Condensed' in self.sourceFont.fullname:
                 familyname = familyname + ' Condensed'
                 fontname = fontname + 'Condensed'
-        elif 'JetBrains' in self.sourceFont.fullname and UPDATE_FONT_NAME:
+        elif 'JetBrains' in self.sourceFont.fullname:
             familyname = 'JetBrains Mono'
-            fontname = 'JetBrains-Mono'
+            fontname = 'JetBrainsMono'
         elif self.sourceFont.fullname.startswith('M+'):
             if '2m' in self.sourceFont.fullname:
                 familyname = 'M+ 2m'
@@ -341,9 +341,6 @@ class font_patcher:
             fullname = self.sourceFont.fullname + verboseAdditionalFontNameSuffix
         else:
             fullname = self.sourceFont.cidfontname + verboseAdditionalFontNameSuffix
-
-        if 'JetBrains' in self.sourceFont.fullname and not UPDATE_FONT_NAME:
-            fullname = fullname.replace('JetBrains Mono', 'JetBrainsMono')
 
         fontname = fontname + additionalFontNameSuffix.replace(" ", "")
 
@@ -436,7 +433,7 @@ class font_patcher:
         )
 
         styleMappings = {
-            'thin':    'thin',
+            'thin':    'Thin',
             'light':   'Light',
             'regular': 'Regular',
             'medium':  'Medium',
@@ -447,6 +444,9 @@ class font_patcher:
             'SemiCondensed': '',
             'Semi Condensed': '',
             'Condensed': '',
+            'CurlySlab': '',
+            'Curly Slab': '',
+            'Curly': '',
             }
 
         def update_sub_family(sub_family):
@@ -461,6 +461,9 @@ class font_patcher:
             subFamily = update_sub_family(subFamily)
             preferredStyles = update_sub_family(preferredStyles)
         elif fullname.startswith('Inconsolata Semi Condensed'):
+            subFamily = update_sub_family(subFamily)
+            preferredStyles = update_sub_family(preferredStyles)
+        elif fullname.startswith('Iosevka Curly'):
             subFamily = update_sub_family(subFamily)
             preferredStyles = update_sub_family(preferredStyles)
         elif UPDATE_FONT_SUB_FAMILY:
@@ -550,8 +553,22 @@ class font_patcher:
         if UPDATE_FONT_SUB_FAMILY:
             if fullname.startswith('M+'):
                 fullname = replace_font_name(fullname, styleMappings)
-                fullname = fullname + ' (Extra)'
                 fontname = replace_font_name(fontname, styleMappings)
+
+        if UPDATE_FONT_NAME:
+            if fullname.startswith('JetBrains'):
+                fontname = fontname.replace('NerdFontCompleteM', 'NerdFontMono')
+                fontname = fontname.replace('NerdFontComplete', 'NerdFont')
+                familyname = familyname.replace('Nerd Font Mono', 'Nerd Font')
+                fullname = f'{familyname} {subFamily}'
+            elif fullname.startswith('M+'):
+                fontname = fontname.replace('NerdFontCompleteM', 'NerdFontMono')
+                fontname = fontname.replace('NerdFontComplete', 'NerdFont')
+                fullname = f'{familyname} {preferredStyles}'
+            else:
+                fontname = fontname.replace('NerdFontCompleteM', 'NerdFontMono')
+                fontname = fontname.replace('NerdFontComplete', 'NerdFont')
+                fullname = f'{familyname} {subFamily}'
 
         # replace any extra whitespace characters:
         self.sourceFont.familyname = " ".join(familyname.split())
