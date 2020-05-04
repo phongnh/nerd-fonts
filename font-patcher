@@ -285,19 +285,23 @@ class font_patcher:
         # Customize Font Name
         #===============================================================================
 
-        UPDATE_FONT_NAME       = os.environ.get('UPDATE_FONT_NAME', 'no') == 'yes'
+        UPDATE_FONT_NAME       = os.environ.get('UPDATE_FONT_NAME', 'yes') == 'yes'
         UPDATE_FONT_SUB_FAMILY = os.environ.get('UPDATE_FONT_SUB_FAMILY', 'no') == 'yes'
 
         if 'Iosevka' in self.sourceFont.familyname:
+            if 'Term' in self.sourceFont.familyname:
+                familyname = familyname + ' Term'
+                fontname = fontname + 'Term'
+            elif 'Fixed' in self.sourceFont.familyname:
+                familyname = familyname + ' Fixed'
+                fontname = fontname + 'Fixed'
+
             if 'Curly Slab' in self.sourceFont.familyname:
                 familyname = familyname + ' Curly Slab'
                 fontname = fontname + 'CurlySlab'
             elif 'Curly' in self.sourceFont.familyname:
                 familyname = familyname + ' Curly'
                 fontname = fontname + 'Curly'
-            elif 'Fixed' in self.sourceFont.familyname:
-                familyname = familyname + ' Fixed'
-                fontname = fontname + 'Fixed'
             elif 'Slab' in self.sourceFont.familyname:
                 familyname = familyname + ' Slab'
                 fontname = fontname + 'Slab'
@@ -550,25 +554,31 @@ class font_patcher:
         fullname   = replace_font_name(fullname,   additionalFontNameReplacements2)
         fontname   = replace_font_name(fontname,   additionalFontNameReplacements2)
 
+
         if UPDATE_FONT_SUB_FAMILY:
             if fullname.startswith('M+'):
                 fullname = replace_font_name(fullname, styleMappings)
                 fontname = replace_font_name(fontname, styleMappings)
 
         if UPDATE_FONT_NAME:
+            def find_original_style(name, default):
+                for style in knownStyles:
+                    index = name.find(style)
+                    if index > -1:
+                        originalStyle = name[index:]
+                        originalStyle = originalStyle.replace('Nerd Font Complete Mono', '')
+                        originalStyle = originalStyle.replace('Nerd Font Complete', '')
+                        return originalStyle.strip()
+                return default
+
+            originalStyle = find_original_style(familyname, preferredStyles)
+
             if fullname.startswith('JetBrains'):
-                fontname = fontname.replace('NerdFontCompleteM', 'NerdFontMono')
-                fontname = fontname.replace('NerdFontComplete', 'NerdFont')
                 familyname = familyname.replace('Nerd Font Mono', 'Nerd Font')
-                fullname = f'{familyname} {subFamily}'
-            elif fullname.startswith('M+'):
-                fontname = fontname.replace('NerdFontCompleteM', 'NerdFontMono')
-                fontname = fontname.replace('NerdFontComplete', 'NerdFont')
-                fullname = f'{familyname} {preferredStyles}'
-            else:
-                fontname = fontname.replace('NerdFontCompleteM', 'NerdFontMono')
-                fontname = fontname.replace('NerdFontComplete', 'NerdFont')
-                fullname = f'{familyname} {subFamily}'
+
+            fontname = fontname.replace('NerdFontCompleteM', 'NerdFontMono')
+            fontname = fontname.replace('NerdFontComplete', 'NerdFont')
+            fullname = f'{familyname} {originalStyle}'
 
         # replace any extra whitespace characters:
         self.sourceFont.familyname = " ".join(familyname.split())
