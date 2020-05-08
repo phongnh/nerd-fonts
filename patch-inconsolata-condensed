@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -e
+
+OUTPUT_DIR="out/Inconsolata-Condensed"
+FONT_DIR=~/src/fonts/Inconsolata/otf
+FONT_PATCHER_OPTIONS="--complete $@ --output $OUTPUT_DIR -q --no-progressbars"
+
+echo "FONT_DIR: $FONT_DIR"
+
+mkdir -p $OUTPUT_DIR
+
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-Condensed.otf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-CondensedMedium.otf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-CondensedBold.otf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-CondensedSemiBold.otf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-CondensedExtraBold.otf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-CondensedBlack.otf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-CondensedLight.otf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-CondensedExtraLight.otf"

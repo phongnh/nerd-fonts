@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+set -e
+
+OUTPUT_DIR="out/MPlus"
+FONT_DIR=~/src/fonts/MPlus/otf
+FONT_PATCHER_OPTIONS="--complete $@ --output $OUTPUT_DIR -q --no-progressbars"
+
+echo "FONT_DIR: ${FONT_DIR}"
+
+mkdir -p "$OUTPUT_DIR"
+
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "$FONT_DIR/mplus-1m-bold.otf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "$FONT_DIR/mplus-1m-light.otf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "$FONT_DIR/mplus-1m-medium.otf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "$FONT_DIR/mplus-1m-regular.otf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "$FONT_DIR/mplus-1m-thin.otf"
+
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "$FONT_DIR/mplus-2m-bold.otf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "$FONT_DIR/mplus-2m-light.otf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "$FONT_DIR/mplus-2m-medium.otf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "$FONT_DIR/mplus-2m-regular.otf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "$FONT_DIR/mplus-2m-thin.otf"
+
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "$FONT_DIR/mplus-1mn-bold.otf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "$FONT_DIR/mplus-1mn-light.otf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "$FONT_DIR/mplus-1mn-medium.otf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "$FONT_DIR/mplus-1mn-regular.otf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "$FONT_DIR/mplus-1mn-thin.otf"
+

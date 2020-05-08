@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+env UPDATE_FONT_NAME=yes ./patch-inconsolata-semi-condensed -l $@
+env UPDATE_FONT_NAME=yes ./patch-inconsolata-condensed -l $@
