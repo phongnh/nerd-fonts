@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+CMD        = "7z a -t7z -mx9 -aoa %s %s"
+OUTPUT_DIR = File.expand_path(File.join('.', 'out'))
+
+def zip_fonts
+  puts "*** OUTPUT_DIR = #{OUTPUT_DIR}"
+  font_dirs = Dir.glob(File.join(OUTPUT_DIR, '*')).select { |f| File.directory?(f) }
+  font_dirs.each do |font_dir|
+    dirname = File.dirname(font_dir)
+    basename = File.basename(font_dir)
+    zip_file = "#{basename}.7z"
+    cmd = format(CMD, File.join(dirname, zip_file).inspect, font_dir)
+    puts "--> Running: #{cmd}"
+    `#{cmd}`
+    puts
+  end
+end
+
+zip_fonts
