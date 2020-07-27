@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+./patch-all-inconsolata
+./patch-all-iosevka
+./patch-all-jetbrains-mono
+# ./patch-all-mplus
+./patch-all-mplus-original
+./patch-all-recursive
+./patch-all-victor-mono

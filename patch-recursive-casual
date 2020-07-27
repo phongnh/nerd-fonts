@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -e
+
+FONT_NAME="${FONT_NAME:-Recursive-Casual}"
+OUTPUT_DIR="out/${FONT_NAME}"
+FONT_DIR=~/src/fonts/Recursive-Casual
+FONT_PATCHER_OPTIONS="--complete $@ --output $OUTPUT_DIR -q --no-progressbars"
+
+echo "FONT_DIR: $FONT_DIR"
+
+mkdir -p $OUTPUT_DIR
+
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-Casual-${RECURSIVE_VERSION}.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-CasualBold-${RECURSIVE_VERSION}.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-CasualBoldItalic-${RECURSIVE_VERSION}.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-CasualItalic-${RECURSIVE_VERSION}.ttf"

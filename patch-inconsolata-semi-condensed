@@ -2,19 +2,20 @@
 
 set -e
 
-OUTPUT_DIR="out/Inconsolata-Semi-Condensed"
-FONT_DIR=~/src/fonts/Inconsolata/otf
+FONT_NAME="${FONT_NAME:-Inconsolata-Semi-Condensed}"
+OUTPUT_DIR="out/${FONT_NAME}"
+FONT_DIR=~/src/fonts/Inconsolata/ttf
 FONT_PATCHER_OPTIONS="--complete $@ --output $OUTPUT_DIR -q --no-progressbars"
 
 echo "FONT_DIR: $FONT_DIR"
 
 mkdir -p $OUTPUT_DIR
 
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-SemiCondensed.otf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-SemiCondensedMedium.otf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-SemiCondensedBold.otf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-SemiCondensedSemiBold.otf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-SemiCondensedExtraBold.otf"
-# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-SemiCondensedBlack.otf"
-# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-SemiCondensedLight.otf"
-# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-SemiCondensedExtraLight.otf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-SemiCondensedBlack.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-SemiCondensedExtraLight.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-SemiCondensed.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-SemiCondensedBold.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-SemiCondensedExtraBold.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-SemiCondensedLight.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-SemiCondensedMedium.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/Inconsolata-SemiCondensedSemiBold.ttf"

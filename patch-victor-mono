@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+set -e
+
+FONT_NAME="${FONT_NAME:-Victor-Mono}"
+OUTPUT_DIR="out/${FONT_NAME}"
+FONT_DIR=~/src/fonts/VictorMono/TTF
+FONT_PATCHER_OPTIONS="--complete $@ --output $OUTPUT_DIR -q --no-progressbars"
+
+echo "FONT_DIR: $FONT_DIR"
+
+mkdir -p $OUTPUT_DIR
+
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-ExtraLight.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-ExtraLightItalic.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-ExtraLightOblique.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-Light.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-LightItalic.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-LightOblique.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-Thin.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-ThinItalic.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-ThinOblique.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-Bold.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-BoldItalic.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-BoldOblique.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-Italic.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-Medium.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-MediumItalic.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-MediumOblique.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-Oblique.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-Regular.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-SemiBold.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-SemiBoldItalic.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/VictorMono-SemiBoldOblique.ttf"

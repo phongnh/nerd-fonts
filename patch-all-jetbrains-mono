@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+env FONT_NAME="JetBrains-Mono-Nerd-Font"                      ./patch-jetbrains-mono $@
+env FONT_NAME="JetBrains-Mono-Nerd-Font-Adjusted-Line-Height" ./patch-jetbrains-mono -l $@

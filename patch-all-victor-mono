@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+env FONT_NAME="Victor-Mono-Nerd-Font"                      ./patch-victor-mono $@
+env FONT_NAME="Victor-Mono-Nerd-Font-Adjusted-Line-Height" ./patch-victor-mono -l $@

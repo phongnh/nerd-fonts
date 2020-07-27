@@ -258,6 +258,8 @@ class font_patcher:
             verboseAdditionalFontNameSuffix += " Mono"
 
         print()
+        print()
+        print('================================================================================')
         print(f'==> BEFORE: additionalFontNameSuffix = {additionalFontNameSuffix}')
         print(f'==> BEFORE: verboseAdditionalFontNameSuffix = {verboseAdditionalFontNameSuffix}')
 
@@ -326,6 +328,9 @@ class font_patcher:
         elif 'JetBrains' in self.sourceFont.fullname:
             familyname = 'JetBrains Mono'
             fontname = 'JetBrainsMono'
+        elif 'Victor' in self.sourceFont.fullname:
+            familyname = 'Victor Mono'
+            fontname = 'VictorMono'
         elif self.sourceFont.fullname.startswith('M+'):
             if '2m' in self.sourceFont.fullname:
                 familyname = 'M+ 2m'
@@ -574,6 +579,8 @@ class font_patcher:
             originalStyle = find_original_style(familyname, preferredStyles)
 
             if fullname.startswith('JetBrains'):
+                familyname = familyname.replace('Nerd Font Mono', 'Nerd Font')
+            elif fullname.startswith('Victor'):
                 familyname = familyname.replace('Nerd Font Mono', 'Nerd Font')
 
             fontname = fontname.replace('NerdFontCompleteM', 'NerdFontMono')

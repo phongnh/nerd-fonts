@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+env UPDATE_FONT_SUB_FAMILY=yes FONT_NAME="MPlus-Original-Nerd-Font"                      ./patch-mplus-original $@
+env UPDATE_FONT_SUB_FAMILY=yes FONT_NAME="MPlus-Original-Nerd-Font-Adjusted-Line-Height" ./patch-mplus-original -l $@
