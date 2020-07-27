@@ -2,9 +2,6 @@
 
 env UPDATE_FONT_NAME=yes ./patch-iosevka -l $@
 env UPDATE_FONT_NAME=yes ./patch-iosevka-term -l $@
-# env UPDATE_FONT_NAME=yes ./patch-iosevka-curly -l $@
-# env UPDATE_FONT_NAME=yes ./patch-iosevka-curly-slab -l $@
-# ./patch-iosevka-fixed -l $@
 # ./patch-iosevka-aile -l $@
 # ./patch-iosevka-etoile -l $@
 # ./patch-iosevka-sparkle -l $@
