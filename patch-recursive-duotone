@@ -11,7 +11,7 @@ echo "FONT_DIR: $FONT_DIR"
 
 mkdir -p $OUTPUT_DIR
 
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-Duotone-${RECURSIVE_VERSION}.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-DuotoneBold-${RECURSIVE_VERSION}.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-DuotoneBoldItalic-${RECURSIVE_VERSION}.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-DuotoneItalic-${RECURSIVE_VERSION}.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-Duotone.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-DuotoneBold.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-DuotoneBoldItalic.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-DuotoneItalic.ttf"

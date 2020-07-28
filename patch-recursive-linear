@@ -11,7 +11,7 @@ echo "FONT_DIR: $FONT_DIR"
 
 mkdir -p $OUTPUT_DIR
 
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-Linear-${RECURSIVE_VERSION}.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-LinearBold-${RECURSIVE_VERSION}.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-LinearBoldItalic-${RECURSIVE_VERSION}.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-LinearItalic-${RECURSIVE_VERSION}.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-Linear.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-LinearBold.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-LinearBoldItalic.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-LinearItalic.ttf"

@@ -11,7 +11,7 @@ echo "FONT_DIR: $FONT_DIR"
 
 mkdir -p $OUTPUT_DIR
 
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-Casual-${RECURSIVE_VERSION}.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-CasualBold-${RECURSIVE_VERSION}.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-CasualBoldItalic-${RECURSIVE_VERSION}.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-CasualItalic-${RECURSIVE_VERSION}.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-Casual.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-CasualBold.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-CasualBoldItalic.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-CasualItalic.ttf"

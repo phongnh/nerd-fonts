@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+FONT_DIR = File.expand_path(File.join('~', 'src', 'fonts'))
+FONT_VARIANTS = %w[Casual Duotone Linear SemiCasual]
+CMD = "mv -f %s %s"
+
+def remove_version_from_recursive_fonts
+  FONT_VARIANTS.map { |e| "Recursive-#{e}" }.each do |font|
+    font_dir = File.join(FONT_DIR, font)
+    puts "==> Dir: #{font_dir}"
+    Dir.glob(File.join(font_dir, '*')).select { |f| File.file?(f) }.each do |file|
+      md = file.match(/(\-\d\.\d\d)/)
+      next unless md
+      puts "--> File: #{file}"
+      cmd = format(CMD, file.inspect, file.sub(md[1], '').inspect)
+      puts "--> Running: #{cmd}"
+      `#{cmd}`
+      puts
+    end
+  end
+end
+
+remove_version_from_recursive_fonts
