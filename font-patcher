@@ -287,33 +287,34 @@ class font_patcher:
         # Customize Font Name
         #===============================================================================
 
-        UPDATE_FONT_NAME       = os.environ.get('UPDATE_FONT_NAME', 'yes') == 'yes'
-        UPDATE_FONT_SUB_FAMILY = os.environ.get('UPDATE_FONT_SUB_FAMILY', 'no') == 'yes'
+        DEBUG                  = os.environ.get('DEBUG', 'no') in ['yes', 'true']
+        UPDATE_FONT_NAME       = os.environ.get('UPDATE_FONT_NAME', 'yes') in ['yes', 'true']
+        UPDATE_FONT_SUB_FAMILY = os.environ.get('UPDATE_FONT_SUB_FAMILY', 'no') in ['yes', 'true']
 
-        if 'Iosevka' in self.sourceFont.familyname:
-            if 'Term' in self.sourceFont.familyname:
+        if 'Iosevka' in self.sourceFont.fullname:
+            if 'Term' in self.sourceFont.fullname:
                 familyname = familyname + ' Term'
                 fontname = fontname + 'Term'
-            elif 'Fixed' in self.sourceFont.familyname:
+            elif 'Fixed' in self.sourceFont.fullname:
                 familyname = familyname + ' Fixed'
                 fontname = fontname + 'Fixed'
 
-            if 'Curly Slab' in self.sourceFont.familyname:
+            if 'Curly Slab' in self.sourceFont.fullname:
                 familyname = familyname + ' Curly Slab'
                 fontname = fontname + 'CurlySlab'
-            elif 'Curly' in self.sourceFont.familyname:
+            elif 'Curly' in self.sourceFont.fullname:
                 familyname = familyname + ' Curly'
                 fontname = fontname + 'Curly'
-            elif 'Slab' in self.sourceFont.familyname:
+            elif 'Slab' in self.sourceFont.fullname:
                 familyname = familyname + ' Slab'
                 fontname = fontname + 'Slab'
-            elif 'Aile' in self.sourceFont.familyname:
+            elif 'Aile' in self.sourceFont.fullname:
                 familyname = familyname + ' Aile'
                 fontname = fontname + 'Aile'
-            elif 'Etoile' in self.sourceFont.familyname:
+            elif 'Etoile' in self.sourceFont.fullname:
                 familyname = familyname + ' Etoile'
                 fontname = fontname + 'Etoile'
-            elif 'Sparkle' in self.sourceFont.familyname:
+            elif 'Sparkle' in self.sourceFont.fullname:
                 familyname = familyname + ' Sparkle'
                 fontname = fontname + 'Sparkle'
         elif 'Inconsolata' in self.sourceFont.fullname:
@@ -328,6 +329,20 @@ class font_patcher:
         elif 'JetBrains' in self.sourceFont.fullname:
             familyname = 'JetBrains Mono'
             fontname = 'JetBrainsMono'
+        elif 'Rec Mono' in self.sourceFont.fullname:
+            familyname = familyname.replace('RecMono', 'Rec Mono')
+            if 'SemiCasual' in self.sourceFont.fullname:
+                familyname = familyname + ' SemiCasual'
+                fontname = fontname + 'SemiCasual'
+            elif 'Casual' in self.sourceFont.fullname:
+                familyname = familyname + ' Casual'
+                fontname = fontname + 'Casual'
+            elif 'Duotone' in self.sourceFont.fullname:
+                familyname = familyname + ' Duotone'
+                fontname = fontname + 'Duotone'
+            elif 'Linear' in self.sourceFont.fullname:
+                familyname = familyname + ' Linear'
+                fontname = fontname + 'Linear'
         elif 'Victor' in self.sourceFont.fullname:
             familyname = 'Victor Mono'
             fontname = 'VictorMono'
@@ -357,6 +372,9 @@ class font_patcher:
         print(f'==> AFTER: fullname = {fullname}')
         print(f'==> AFTER: fontname = {fontname}')
         print(f'==> AFTER: familyname = {familyname}')
+
+        if DEBUG:
+            exit(0)
 
         preferredStyles = ''
 
@@ -456,6 +474,10 @@ class font_patcher:
             'CurlySlab': '',
             'Curly Slab': '',
             'Curly': '',
+            'SemiCasual': '',
+            'Casual': '',
+            'Duotone': '',
+            'Linear': '',
             }
 
         def update_sub_family(sub_family):
@@ -473,6 +495,9 @@ class font_patcher:
             subFamily = update_sub_family(subFamily)
             preferredStyles = update_sub_family(preferredStyles)
         elif fullname.startswith('Iosevka Curly'):
+            subFamily = update_sub_family(subFamily)
+            preferredStyles = update_sub_family(preferredStyles)
+        elif fullname.startswith('Rec Mono'):
             subFamily = update_sub_family(subFamily)
             preferredStyles = update_sub_family(preferredStyles)
         elif UPDATE_FONT_SUB_FAMILY:
