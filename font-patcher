@@ -308,6 +308,18 @@ class font_patcher:
             elif 'Slab' in self.sourceFont.fullname:
                 familyname = familyname + ' Slab'
                 fontname = fontname + 'Slab'
+            elif 'SS02' in self.sourceFont.fullname:
+                familyname = familyname + ' SS02'
+                fontname = fontname + 'SS02'
+            elif 'SS03' in self.sourceFont.fullname:
+                familyname = familyname + ' SS03'
+                fontname = fontname + 'SS03'
+            elif 'SS07' in self.sourceFont.fullname:
+                familyname = familyname + ' SS07'
+                fontname = fontname + 'SS07'
+            elif 'SS08' in self.sourceFont.fullname:
+                familyname = familyname + ' SS08'
+                fontname = fontname + 'SS08'
             elif 'Aile' in self.sourceFont.fullname:
                 familyname = familyname + ' Aile'
                 fontname = fontname + 'Aile'

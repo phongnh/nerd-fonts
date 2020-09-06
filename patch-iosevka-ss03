@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+set -e
+
+FONT_NAME="${FONT_NAME:-Iosevka-SS03}"
+OUTPUT_DIR="out/${FONT_NAME}"
+FONT_DIR=~/src/fonts/Iosevka-SS03/ttf
+FONT_CONFIG_OPTIONS="--removeligatures --configfile $FONT_DIR/iosevka_config.json"
+FONT_PATCHER_OPTIONS="--complete $FONT_CONFIG_OPTIONS $@ --output $OUTPUT_DIR -q --no-progressbars"
+FONT_PATCHER_OPTIONS="--complete $@ --output $OUTPUT_DIR -q --no-progressbars"
+
+echo "FONT_DIR: ${FONT_DIR}"
+
+mkdir -p "$OUTPUT_DIR"
+
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-extralight.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-extralightitalic.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-extralightoblique.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-heavy.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-heavyitalic.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-heavyoblique.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-light.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-lightitalic.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-lightoblique.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-thin.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-thinitalic.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-thinoblique.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-bold.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-bolditalic.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-boldoblique.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-extrabold.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-extrabolditalic.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-extraboldoblique.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-italic.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-medium.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-mediumitalic.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-mediumoblique.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-oblique.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-regular.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-semibold.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-semibolditalic.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/iosevka-ss03-semiboldoblique.ttf"
