@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+env FONT_NAME="IBM-Plex-Mono-Nerd-Font"                      ./patch-ibm-plex-mono $@
+env FONT_NAME="IBM-Plex-Mono-Nerd-Font-Adjusted-Line-Height" ./patch-ibm-plex-mono -l $@
