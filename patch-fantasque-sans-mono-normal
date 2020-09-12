@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -e
+
+FONT_NAME="${FONT_NAME:-FantasqueSansMono-Normal}"
+OUTPUT_DIR="out/${FONT_NAME}"
+FONT_DIR=~/src/fonts/FantasqueSansMono-Normal/TTF
+FONT_PATCHER_OPTIONS="--complete $@ --output $OUTPUT_DIR -q --no-progressbars"
+
+echo "FONT_DIR: $FONT_DIR"
+
+mkdir -p $OUTPUT_DIR
+
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/FantasqueSansMono-Bold.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/FantasqueSansMono-BoldItalic.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/FantasqueSansMono-Italic.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/FantasqueSansMono-Regular.ttf"

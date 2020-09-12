@@ -376,6 +376,9 @@ class font_patcher:
         elif 'D2Coding' in self.sourceFont.fullname:
             familyname = 'D2Coding'
             fontname = 'D2Coding'
+        elif 'Fantasque Sans Mono' in self.sourceFont.fullname:
+            familyname = 'Fantasque Sans Mono'
+            fontname = 'FantasqueSansMono'
         elif self.sourceFont.fullname.startswith('M+'):
             if '2m' in self.sourceFont.fullname:
                 familyname = 'M+ 2m'
