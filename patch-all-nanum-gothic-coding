@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+env FONT_NAME="NanumGothicCoding-Nerd-Font"                      ./patch-nanum-gothic-coding $@
+env FONT_NAME="NanumGothicCoding-Nerd-Font-Adjusted-Line-Height" ./patch-nanum-gothic-coding -l $@
