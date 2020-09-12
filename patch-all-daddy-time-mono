@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-env FONT_NAME="Daddy-Time-Mono-Nerd-Font"                      ./patch-daddy-time-mono $@
-env FONT_NAME="Daddy-Time-Mono-Nerd-Font-Adjusted-Line-Height" ./patch-daddy-time-mono -l $@
+env FONT_NAME="DaddyTimeMono-Nerd-Font"                      ./patch-daddy-time-mono $@
+env FONT_NAME="DaddyTimeMono-Nerd-Font-Adjusted-Line-Height" ./patch-daddy-time-mono -l $@
