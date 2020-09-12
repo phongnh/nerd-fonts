@@ -486,6 +486,7 @@ class font_patcher:
             'regular': 'Regular',
             'medium':  'Medium',
             'bold':    'Bold',
+            'Book':    'Regular',
             }
 
         prefixes = {
@@ -523,6 +524,9 @@ class font_patcher:
             preferredStyles = update_sub_family(preferredStyles)
         elif UPDATE_FONT_SUB_FAMILY:
             if fullname.startswith('M+'):
+                subFamily = update_sub_family(subFamily)
+                preferredStyles = update_sub_family(preferredStyles)
+            elif fullname.startswith('DaddyTimeMono'):
                 subFamily = update_sub_family(subFamily)
                 preferredStyles = update_sub_family(preferredStyles)
 
@@ -608,6 +612,9 @@ class font_patcher:
 
         if UPDATE_FONT_SUB_FAMILY:
             if fullname.startswith('M+'):
+                fullname = replace_font_name(fullname, styleMappings)
+                fontname = replace_font_name(fontname, styleMappings)
+            elif fullname.startswith('DaddyTimeMono'):
                 fullname = replace_font_name(fullname, styleMappings)
                 fontname = replace_font_name(fontname, styleMappings)
 

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+env UPDATE_FONT_SUB_FAMILY=no  FONT_NAME="Daddy-Time-Mono-Nerd-Font" ./patch-daddy-time-mono $@
+env UPDATE_FONT_SUB_FAMILY=yes FONT_NAME="Daddy-Time-Mono-Nerd-Font" ./patch-daddy-time-mono $@
+
+env UPDATE_FONT_SUB_FAMILY=no  FONT_NAME="Daddy-Time-Mono-Nerd-Font-Adjusted-Line-Height" ./patch-daddy-time-mono -l $@
+env UPDATE_FONT_SUB_FAMILY=yes FONT_NAME="Daddy-Time-Mono-Nerd-Font-Adjusted-Line-Height" ./patch-daddy-time-mono -l $@
