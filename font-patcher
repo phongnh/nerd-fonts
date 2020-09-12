@@ -367,6 +367,9 @@ class font_patcher:
         elif 'Victor' in self.sourceFont.fullname:
             familyname = 'Victor Mono'
             fontname = 'VictorMono'
+        elif 'Consola Mono' in self.sourceFont.fullname:
+            familyname = 'Consola Mono'
+            fontname = 'ConsolaMono'
         elif 'D2Coding' in self.sourceFont.fullname:
             familyname = 'D2Coding'
             fontname = 'D2Coding'
@@ -532,6 +535,9 @@ class font_patcher:
             elif fullname.startswith('DaddyTimeMono'):
                 subFamily = update_sub_family(subFamily)
                 preferredStyles = update_sub_family(preferredStyles)
+            elif fullname.startswith('Consola Mono'):
+                subFamily = update_sub_family(subFamily)
+                preferredStyles = update_sub_family(preferredStyles)
 
         subFamily = subFamily.strip()
         if subFamily == '':
@@ -618,6 +624,9 @@ class font_patcher:
                 fullname = replace_font_name(fullname, styleMappings)
                 fontname = replace_font_name(fontname, styleMappings)
             elif fullname.startswith('DaddyTimeMono'):
+                fullname = replace_font_name(fullname, styleMappings)
+                fontname = replace_font_name(fontname, styleMappings)
+            elif fullname.startswith('Consola Mono'):
                 fullname = replace_font_name(fullname, styleMappings)
                 fontname = replace_font_name(fontname, styleMappings)
 

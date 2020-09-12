@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+env FONT_NAME="Consola-Mono-Nerd-Font"                      ./patch-consola-mono $@
+env FONT_NAME="Consola-Mono-Nerd-Font-Adjusted-Line-Height" ./patch-consola-mono -l $@
