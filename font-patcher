@@ -367,6 +367,9 @@ class font_patcher:
         elif 'Victor' in self.sourceFont.fullname:
             familyname = 'Victor Mono'
             fontname = 'VictorMono'
+        elif 'ComicShanns' in self.sourceFont.fullname:
+            familyname = 'Comic Shanns'
+            fontname = 'ComicShanns'
         elif 'Consola Mono' in self.sourceFont.fullname:
             familyname = 'Consola Mono'
             fontname = 'ConsolaMono'
