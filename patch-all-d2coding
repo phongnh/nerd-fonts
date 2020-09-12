@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+env FONT_NAME="D2Coding-Nerd-Font"                      ./patch-d2coding $@
+env FONT_NAME="D2Coding-Nerd-Font-Adjusted-Line-Height" ./patch-d2coding -l $@
