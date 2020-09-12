@@ -12,3 +12,4 @@ echo "FONT_DIR: ${FONT_DIR}"
 mkdir -p "$OUTPUT_DIR"
 
 ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/DaddyTimeMono.ttf"
+UPDATE_FONT_SUB_FAMILY=yes ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/DaddyTimeMono.ttf"
