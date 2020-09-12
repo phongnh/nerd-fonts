@@ -2,7 +2,7 @@
 
 set -e
 
-FONT_NAME="${FONT_NAME:-DaddyTimeMono}"
+FONT_NAME="${FONT_NAME:-Daddy-Time-Mono}"
 OUTPUT_DIR="out/${FONT_NAME}"
 FONT_DIR=~/src/fonts/DaddyTimeMono/ttf
 FONT_PATCHER_OPTIONS="--complete $@ --output $OUTPUT_DIR -q --no-progressbars"
