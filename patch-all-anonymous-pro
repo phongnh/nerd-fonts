@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+env FONT_NAME="Anonymous-Pro-Nerd-Font"                      ./patch-anonymous-pro $@
+env FONT_NAME="Anonymous-Pro-Nerd-Font-Adjusted-Line-Height" ./patch-anonymous-pro -l $@

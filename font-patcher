@@ -379,6 +379,15 @@ class font_patcher:
         elif 'Fantasque Sans Mono' in self.sourceFont.fullname:
             familyname = 'Fantasque Sans Mono'
             fontname = 'FantasqueSansMono'
+        elif 'Fira Code' in self.sourceFont.fullname:
+            familyname = 'Fira Code'
+            fontname = 'FiraCode'
+        elif 'CamingoCode' in self.sourceFont.fullname:
+            familyname = 'CamingoCode'
+            fontname = 'CamingoCode'
+        elif 'Anonymous Pro' in self.sourceFont.fullname:
+            familyname = 'Anonymous Pro'
+            fontname = 'AnonymousPro'
         elif self.sourceFont.fullname.startswith('M+'):
             if '2m' in self.sourceFont.fullname:
                 familyname = 'M+ 2m'
