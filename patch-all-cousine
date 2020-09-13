@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+env FONT_NAME="Cousine-Nerd-Font"                      ./patch-cousine $@
+env FONT_NAME="Cousine-Nerd-Font-Adjusted-Line-Height" ./patch-cousine -l $@
