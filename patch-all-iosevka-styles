@@ -1,28 +1,4 @@
 #!/usr/bin/env bash
 
-env FONT_NAME="Iosevka-SS02-Nerd-Font"                      ./patch-iosevka-ss02 $@
-env FONT_NAME="Iosevka-SS02-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-ss02 -l $@
-
-env FONT_NAME="Iosevka-SS03-Nerd-Font"                      ./patch-iosevka-ss03 $@
-env FONT_NAME="Iosevka-SS03-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-ss03 -l $@
-
-env FONT_NAME="Iosevka-SS05-Nerd-Font"                      ./patch-iosevka-ss05 $@
-env FONT_NAME="Iosevka-SS05-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-ss05 -l $@
-
-env FONT_NAME="Iosevka-SS07-Nerd-Font"                      ./patch-iosevka-ss07 $@
-env FONT_NAME="Iosevka-SS07-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-ss07 -l $@
-
-# env FONT_NAME="Iosevka-SS08-Nerd-Font"                      ./patch-iosevka-ss08 $@
-# env FONT_NAME="Iosevka-SS08-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-ss08 -l $@
-
-env FONT_NAME="Iosevka-SS10-Nerd-Font"                      ./patch-iosevka-ss10 $@
-env FONT_NAME="Iosevka-SS10-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-ss10 -l $@
-
-env FONT_NAME="Iosevka-SS12-Nerd-Font"                      ./patch-iosevka-ss12 $@
-env FONT_NAME="Iosevka-SS12-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-ss12 -l $@
-
-# env FONT_NAME="Iosevka-SS13-Nerd-Font"                      ./patch-iosevka-ss13 $@
-# env FONT_NAME="Iosevka-SS13-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-ss13 -l $@
-
-env FONT_NAME="Iosevka-SS14-Nerd-Font"                      ./patch-iosevka-ss14 $@
-env FONT_NAME="Iosevka-SS14-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-ss14 -l $@
+./patch-all-iosevka-styles-part-1
+./patch-all-iosevka-styles-part-2
