@@ -6,6 +6,9 @@ env FONT_NAME="Iosevka-SS02-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-ss02
 env FONT_NAME="Iosevka-SS03-Nerd-Font"                      ./patch-iosevka-ss03 $@
 env FONT_NAME="Iosevka-SS03-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-ss03 -l $@
 
+env FONT_NAME="Iosevka-SS05-Nerd-Font"                      ./patch-iosevka-ss05 $@
+env FONT_NAME="Iosevka-SS05-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-ss05 -l $@
+
 env FONT_NAME="Iosevka-SS07-Nerd-Font"                      ./patch-iosevka-ss07 $@
 env FONT_NAME="Iosevka-SS07-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-ss07 -l $@
 

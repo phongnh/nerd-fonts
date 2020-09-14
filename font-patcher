@@ -314,6 +314,9 @@ class font_patcher:
             elif 'SS03' in self.sourceFont.fullname:
                 familyname = familyname + ' SS03'
                 fontname = fontname + 'SS03'
+            elif 'SS05' in self.sourceFont.fullname:
+                familyname = familyname + ' SS05'
+                fontname = fontname + 'SS05'
             elif 'SS07' in self.sourceFont.fullname:
                 familyname = familyname + ' SS07'
                 fontname = fontname + 'SS07'
