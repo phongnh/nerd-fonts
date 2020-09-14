@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+
+DIR = File.expand_path(File.join('~', 'src', 'fonts'))
+
+CMDS = {
+  '.zip' => 'unzip %s -d %s',
+}
+
+def extract_fonts
+  puts "*** DIR: #{DIR}"
+  Dir.glob(File.join(DIR, '*')).select { |f| File.file?(f) }.sort.each do |font|
+    extname = File.extname(font)
+    next unless ['.zip', '.7z'].include?(extname)
+    puts "==> Font: #{font}"
+    basename = File.basename(font)
+    if basename.include?('iosevka')
+      puts "--> Name: #{basename}"
+      dirname = basename.gsub(/^ttf-(.*)-\d\.\d\.\d\.(.*)$/, '\1')
+      dirname = dirname.capitalize
+      dirname = dirname.sub('ss', 'SS') if dirname.include?('ss')
+      target_dir =  File.join(DIR, dirname)
+      FileUtils.mkdir_p(target_dir)
+      cmd = format(CMDS[extname], font.inspect, target_dir.inspect)
+      puts "--> Running: #{cmd}"
+      `#{cmd}`
+    end
+  end
+end
+
+extract_fonts

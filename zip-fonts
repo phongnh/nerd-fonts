@@ -1,19 +1,18 @@
 #!/usr/bin/env ruby
 
-CMD        = "7z a -t7z -mx9 -aoa %s %s"
-OUTPUT_DIR = File.expand_path(File.join('.', 'out'))
+CMD = '7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on %s %s'
+DIR = File.expand_path(File.join('.', 'out'))
 
 def zip_fonts
-  puts "*** OUTPUT_DIR = #{OUTPUT_DIR}"
-  font_dirs = Dir.glob(File.join(OUTPUT_DIR, '*')).select { |f| File.directory?(f) }
-  font_dirs.each do |font_dir|
+  puts "*** DIR = #{DIR}"
+  Dir.glob(File.join(DIR, '*')).select { |f| File.directory?(f) }.sort.each do |font_dir|
+    puts "--> Font Dir: #{font_dir}"
     dirname = File.dirname(font_dir)
     basename = File.basename(font_dir)
     zip_file = "#{basename}.7z"
-    cmd = format(CMD, File.join(dirname, zip_file).inspect, font_dir)
+    cmd = format(CMD, File.join(dirname, zip_file).inspect, font_dir.inspect)
     puts "--> Running: #{cmd}"
     `#{cmd}`
-    puts
   end
 end
 
