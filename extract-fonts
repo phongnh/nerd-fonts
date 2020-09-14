@@ -5,7 +5,7 @@ require 'fileutils'
 DIR = File.expand_path(File.join('~', 'src', 'fonts'))
 
 CMDS = {
-  '.zip' => 'unzip %s -d %s',
+  '.zip' => 'unzip -f %s -d %s',
 }
 
 def extract_fonts
