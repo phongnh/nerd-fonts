@@ -6,7 +6,7 @@ DIR = File.expand_path(File.join('.', 'out'))
 def zip_fonts
   puts "*** DIR = #{DIR}"
   Dir.glob(File.join(DIR, '*')).select { |f| File.directory?(f) }.sort.each do |font_dir|
-    puts "--> Font Dir: #{font_dir}"
+    puts "==> Font Dir: #{font_dir}"
     dirname = File.dirname(font_dir)
     basename = File.basename(font_dir)
     zip_file = "#{basename}.7z"
