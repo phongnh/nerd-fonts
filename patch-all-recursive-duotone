@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+env FONT_NAME="Rec-Mono-Duotone-Nerd-Font"                      ./patch-recursive-duotone $@
+env FONT_NAME="Rec-Mono-Duotone-Nerd-Font-Adjusted-Line-Height" ./patch-recursive-duotone -l $@

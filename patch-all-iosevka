@@ -2,18 +2,3 @@
 
 env FONT_NAME="Iosevka-Nerd-Font"                      ./patch-iosevka $@
 env FONT_NAME="Iosevka-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka -l $@
-
-# env FONT_NAME="Iosevka-Term-Nerd-Font"                      ./patch-iosevka-term $@
-# env FONT_NAME="Iosevka-Term-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-term -l $@
-
-# env FONT_NAME="Iosevka-Slab-Nerd-Font"                      ./patch-iosevka-slab $@
-# env FONT_NAME="Iosevka-Slab-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-slab -l $@
-
-# env FONT_NAME="Iosevka-Aile-Nerd-Font"                      ./patch-iosevka-aile $@
-# env FONT_NAME="Iosevka-Aile-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-aile -l $@
-
-# env FONT_NAME="Iosevka-Etoile-Nerd-Font"                      ./patch-iosevka-etoile $@
-# env FONT_NAME="Iosevka-Etoile-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-etoile -l $@
-
-# env FONT_NAME="Iosevka-Sparkle-Nerd-Font"                      ./patch-iosevka-sparkle $@
-# env FONT_NAME="Iosevka-Sparkle-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-sparkle -l $@

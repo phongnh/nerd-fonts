@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+env FONT_NAME="Cascadia-Code-Nerd-Font"                      ./patch-cascadia-code $@
+env FONT_NAME="Cascadia-Code-Nerd-Font-Adjusted-Line-Height" ./patch-cascadia-code -l $@

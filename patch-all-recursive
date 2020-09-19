@@ -1,13 +1,6 @@
 #!/usr/bin/env bash
 
-env FONT_NAME="Rec-Mono-Casual-Nerd-Font"                      ./patch-recursive-casual $@
-env FONT_NAME="Rec-Mono-Casual-Nerd-Font-Adjusted-Line-Height" ./patch-recursive-casual -l $@
-
-env FONT_NAME="Rec-Mono-Duotone-Nerd-Font"                      ./patch-recursive-duotone $@
-env FONT_NAME="Rec-Mono-Duotone-Nerd-Font-Adjusted-Line-Height" ./patch-recursive-duotone -l $@
-
-env FONT_NAME="Rec-Mono-Linear-Nerd-Font"                      ./patch-recursive-linear $@
-env FONT_NAME="Rec-Mono-Linear-Nerd-Font-Adjusted-Line-Height" ./patch-recursive-linear -l $@
-
-env FONT_NAME="Rec-Mono-SemiCasual-Nerd-Font"                      ./patch-recursive-semicasual $@
-env FONT_NAME="Rec-Mono-SemiCasual-Nerd-Font-Adjusted-Line-Height" ./patch-recursive-semicasual -l $@
+./patch-all-recursive-casual
+./patch-all-recursive-duotone
+./patch-all-recursive-linear
+./patch-all-recursive-semicasual

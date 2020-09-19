@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -e
+
+FONT_NAME="${FONT_NAME:-CascadiaCode}"
+OUTPUT_DIR="out/${FONT_NAME}"
+FONT_DIR=~/src/fonts/CascadiaCode/ttf
+FONT_PATCHER_OPTIONS="--complete $@ --output $OUTPUT_DIR -q --no-progressbars"
+
+echo "FONT_DIR: $FONT_DIR"
+
+mkdir -p $OUTPUT_DIR
+
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/CascadiaCode.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-Bold.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-ExtraLight.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-Light.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-Regular.ttf"
+~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-SemiBold.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-SemiLight.ttf"

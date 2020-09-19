@@ -1,11 +1,4 @@
 #!/usr/bin/env bash
 
-# env FONT_NAME="Inconsolata-Nerd-Font"                      ./patch-inconsolata $@
-# env FONT_NAME="Inconsolata-Nerd-Font-Adjusted-Line-Height" ./patch-inconsolata -l $@
-
-# Default
-env FONT_NAME="Inconsolata-Semi-Condensed-Nerd-Font"                      ./patch-inconsolata-semi-condensed $@
-env FONT_NAME="Inconsolata-Semi-Condensed-Nerd-Font-Adjusted-Line-Height" ./patch-inconsolata-semi-condensed -l $@
-
-env FONT_NAME="Inconsolata-Condensed-Nerd-Font"                      ./patch-inconsolata-condensed $@
-env FONT_NAME="Inconsolata-Condensed-Nerd-Font-Adjusted-Line-Height" ./patch-inconsolata-condensed -l $@
+env FONT_NAME="Inconsolata-Nerd-Font"                      ./patch-inconsolata $@
+env FONT_NAME="Inconsolata-Nerd-Font-Adjusted-Line-Height" ./patch-inconsolata -l $@

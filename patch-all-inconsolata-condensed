@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+env FONT_NAME="Inconsolata-Condensed-Nerd-Font"                      ./patch-inconsolata-condensed $@
+env FONT_NAME="Inconsolata-Condensed-Nerd-Font-Adjusted-Line-Height" ./patch-inconsolata-condensed -l $@
