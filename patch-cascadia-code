@@ -11,7 +11,7 @@ echo "FONT_DIR: $FONT_DIR"
 
 mkdir -p $OUTPUT_DIR
 
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/CascadiaCode.ttf"
+# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/CascadiaCode.ttf"
 ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-Bold.ttf"
 # ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-ExtraLight.ttf"
 ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-Light.ttf"
