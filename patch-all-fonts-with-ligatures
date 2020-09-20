@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-FONT_RESULT_DIR="patch-with-careful"
+export FONT_RESULT_DIR="patch-with-careful"
+
 ./patch-all-iosevka --careful
 ./patch-all-iosevka-slab --careful
 ./patch-all-iosevka-ss07 --careful
