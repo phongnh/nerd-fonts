@@ -3,7 +3,8 @@
 set -e
 
 FONT_NAME="${FONT_NAME:-Iosevka-SS13}"
-OUTPUT_DIR="out/${FONT_NAME}"
+FONT_RESULT_DIR="${FONT_RESULT_DIR:-out}"
+OUTPUT_DIR="${FONT_RESULT_DIR}/${FONT_NAME}"
 FONT_DIR=~/src/fonts/Iosevka-SS13/ttf
 FONT_CONFIG_OPTIONS="--removeligatures --configfile $FONT_DIR/iosevka_config.json"
 FONT_PATCHER_OPTIONS="--complete $FONT_CONFIG_OPTIONS $@ --output $OUTPUT_DIR -q --no-progressbars"
