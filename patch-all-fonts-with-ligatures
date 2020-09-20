@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+FONT_RESULT_DIR="patch-with-careful"
+./patch-all-iosevka --careful
+./patch-all-iosevka-slab --careful
+./patch-all-iosevka-ss07 --careful
+./patch-all-iosevka-ss14 --careful
+./patch-all-jetbrains-mono --careful
+./patch-all-victor-mono --careful
+./patch-all-fira-code --careful
+./patch-all-cascadia-code --careful
+./patch-all-inconsolata-semi-condensed --careful

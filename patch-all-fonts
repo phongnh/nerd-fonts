@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
-./patch-all-inconsolata
 ./patch-all-iosevka
-./patch-all-iosevka-styles
+./patch-all-iosevka-slab
+./patch-all-iosevka-ss07
+./patch-all-iosevka-ss14
 ./patch-all-jetbrains-mono
-# ./patch-all-mplus
-./patch-all-mplus-original
-# ./patch-all-recursive
 ./patch-all-victor-mono
+./patch-all-fira-code
+./patch-all-cascadia-code
+./patch-all-inconsolata-semi-condensed
+./patch-all-mplus
+./patch-all-mplus-original
