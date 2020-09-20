@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+set -e
+
+FONT_DIR=$HOME/src/fonts
+
+mkdir -p ${FONT_DIR}
+
+function extract-xz() {
+    local font="${FONT_DIR}/$1"
+    local dir="${FONT_DIR}/$2"
+    if [ -e "$font" ]; then
+        mkdir -p "$dir"
+        echo tar --keep-newer-files -xf $font -C "$dir"
+        tar --keep-newer-files -xf $font -C "$dir" &>/dev/null
+    fi
+}
+
+function extract-zip() {
+    local font="${FONT_DIR}/$1"
+    local dir="${FONT_DIR}/$2"
+    if [ -e "$font" ]; then
+        mkdir -p "$dir"
+        echo unzip -q -f $font -d "$dir"
+        unzip -q -f $font -d "$dir"
+    fi
+}
+
+function fix-mplus-font() {
+    local dir="${FONT_DIR}/MPlus-Original"
+    if [ -d "$dir/063-OTF-NO_REMOVE_OVERLAP" ]; then
+        ln -sfn "$dir/063-OTF-NO_REMOVE_OVERLAP" "$dir/otf"
+    fi
+    local dir="${FONT_DIR}/MPlus"
+    if [ -d "$dir/063-OTF" ]; then
+        ln -sfn "$dir/063-OTF" "$dir/otf"
+    fi
+}
+
+function fix-inconsolata-font() {
+    local dir="${FONT_DIR}/Inconsolata"
+    if [ -d "$dir/fonts/ttf" ]; then
+        ln -sfn "$dir/fonts/ttf" "$dir/ttf"
+    fi
+}
+
+extract-zip "CascadiaCode-2009.14.zip"               "CascadiaCode"
+extract-zip "Fira_Code_v5.2.zip"                     "FiraCode"
+extract-zip "Inconsolata-v3.000.zip"                 "Inconsolata"
+extract-zip "JetBrainsMono-2.002.zip"                "JetBrainsMono"
+extract-xz  "mplus-063-OTF-NO_REMOVE_OVERLAP.tar.xz" "MPlus-Original"
+extract-xz  "mplus-063-OTF.tar.xz"                   "MPlus"
+extract-zip "ttf-iosevka-3.6.0.zip"                  "Iosevka"
+extract-zip "ttf-iosevka-slab-3.6.0.zip"             "Iosevka-Slab"
+extract-zip "ttf-iosevka-ss02-3.6.0.zip"             "Iosevka-SS02"
+extract-zip "ttf-iosevka-ss03-3.6.0.zip"             "Iosevka-SS03"
+extract-zip "ttf-iosevka-ss05-3.6.0.zip"             "Iosevka-SS05"
+extract-zip "ttf-iosevka-ss07-3.6.0.zip"             "Iosevka-SS07"
+extract-zip "ttf-iosevka-ss10-3.6.0.zip"             "Iosevka-SS10"
+extract-zip "ttf-iosevka-ss12-3.6.0.zip"             "Iosevka-SS12"
+extract-zip "ttf-iosevka-ss14-3.6.0.zip"             "Iosevka-SS14"
+extract-zip "VictorMonoAll.zip"                      "VictorMono"
+
+fix-mplus-font
+fix-inconsolata-font
