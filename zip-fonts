@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 CMD = '7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on %s %s'
-DIR = File.expand_path(File.join('.', ARGV[1] || 'out'))
+DIR = File.expand_path(File.join('.', ARGV[0] || 'out'))
 
 def zip_fonts
   puts "*** DIR = #{DIR}"
@@ -9,8 +9,10 @@ def zip_fonts
     puts "==> Font Dir: #{font_dir}"
     dirname = File.dirname(font_dir)
     basename = File.basename(font_dir)
-    zip_file = "#{basename}.7z"
-    cmd = format(CMD, File.join(dirname, zip_file).inspect, font_dir.inspect)
+    zip_file_name = "#{basename}.7z"
+    zip_file = File.join(dirname, zip_file_name)
+    next if File.exist?(zip_file)
+    cmd = format(CMD, zip_file.inspect, font_dir.inspect)
     puts "--> Running: #{cmd}"
     `#{cmd}`
   end

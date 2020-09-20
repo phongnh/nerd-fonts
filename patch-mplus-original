@@ -5,7 +5,7 @@ set -e
 FONT_NAME="${FONT_NAME:-MPlus-Original}"
 FONT_RESULT_DIR="${FONT_RESULT_DIR:-out}"
 OUTPUT_DIR="${FONT_RESULT_DIR}/${FONT_NAME}"
-FONT_DIR=~/src/fonts/MPlus_Original/otf
+FONT_DIR=~/src/fonts/MPlus-Original/otf
 FONT_PATCHER_OPTIONS="--complete $@ --output $OUTPUT_DIR -q --no-progressbars"
 
 echo "FONT_DIR: ${FONT_DIR}"
