@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-env FONT_NAME="CamingoCode-Nerd-Font"                      ./patch-camingo-code $@
-env FONT_NAME="CamingoCode-Nerd-Font-Adjusted-Line-Height" ./patch-camingo-code -l $@

@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-env FONT_NAME="Comic-Shanns-Nerd-Font"                      ./patch-comic-shanns $@
-env FONT_NAME="Comic-Shanns-Nerd-Font-Adjusted-Line-Height" ./patch-comic-shanns -l $@

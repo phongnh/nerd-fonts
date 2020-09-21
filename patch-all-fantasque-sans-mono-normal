@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-env FONT_NAME="Fantasque-Sans-Mono-Normal-Nerd-Font"                      ./patch-fantasque-sans-mono-normal $@
-env FONT_NAME="Fantasque-Sans-Mono-Normal-Nerd-Font-Adjusted-Line-Height" ./patch-fantasque-sans-mono-normal -l $@
