@@ -37,6 +37,13 @@ except ImportError:
     )
 
 
+# Environment Variables
+DEBUG                  = os.environ.get('DEBUG', 'no') in ['yes', 'true']
+UPDATE_FONT_NAME       = os.environ.get('UPDATE_FONT_NAME', 'yes') in ['yes', 'true']
+UPDATE_FONT_SUB_FAMILY = os.environ.get('UPDATE_FONT_SUB_FAMILY', 'no') in ['yes', 'true']
+USE_COMPLETE_NAME      = os.environ.get('USE_COMPLETE_NAME', 'no') in ['yes', 'true']
+
+
 class font_patcher:
     def __init__(self):
         self.args = None  # class 'argparse.Namespace'
@@ -263,6 +270,18 @@ class font_patcher:
         print(f'==> BEFORE: additionalFontNameSuffix = {additionalFontNameSuffix}')
         print(f'==> BEFORE: verboseAdditionalFontNameSuffix = {verboseAdditionalFontNameSuffix}')
 
+        # Use "complete" for name
+        if USE_COMPLETE_NAME:
+            additionalFontNameSuffix = " " + projectNameSingular + " Complete"
+            verboseAdditionalFontNameSuffix = " " + projectNameSingular + " Complete"
+
+            if self.args.single:
+                additionalFontNameSuffix += " M"
+                verboseAdditionalFontNameSuffix += " Mono"
+
+        print(f'==> AFTER: additionalFontNameSuffix = {additionalFontNameSuffix}')
+        print(f'==> AFTER: verboseAdditionalFontNameSuffix = {verboseAdditionalFontNameSuffix}')
+
         # basically split the font name around the dash "-" to get the fontname and the style (e.g. Bold)
         # this does not seem very reliable so only use the style here as a fallback if the font does not
         # have an internal style defined (in sfnt_names)
@@ -286,10 +305,6 @@ class font_patcher:
         #===============================================================================
         # Customize Font Name
         #===============================================================================
-
-        DEBUG                  = os.environ.get('DEBUG', 'no') in ['yes', 'true']
-        UPDATE_FONT_NAME       = os.environ.get('UPDATE_FONT_NAME', 'yes') in ['yes', 'true']
-        UPDATE_FONT_SUB_FAMILY = os.environ.get('UPDATE_FONT_SUB_FAMILY', 'no') in ['yes', 'true']
 
         if 'Iosevka' in self.sourceFont.fullname:
             if 'Term' in self.sourceFont.fullname:
@@ -688,6 +703,7 @@ class font_patcher:
         print()
         print(f'==> UPDATE_FONT_NAME       = {UPDATE_FONT_NAME}')
         print(f'==> UPDATE_FONT_SUB_FAMILY = {UPDATE_FONT_SUB_FAMILY}')
+        print(f'==> USE_COMPLETE_NAME      = {USE_COMPLETE_NAME}')
         print(f'==> FINAL: fontame = {fontname}')
         print(f'==> FINAL: familyname = {self.sourceFont.familyname}')
         print(f'==> FINAL: fullname = {self.sourceFont.fullname}')

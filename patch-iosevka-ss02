@@ -6,11 +6,11 @@ FONT_NAME="${FONT_NAME:-Iosevka-SS02}"
 FONT_RESULT_DIR="${FONT_RESULT_DIR:-out}"
 OUTPUT_DIR="${FONT_RESULT_DIR}/${FONT_NAME}"
 FONT_DIR=~/src/fonts/Iosevka-SS02/ttf
-FONT_CONFIG_OPTIONS="--removeligatures --configfile $FONT_DIR/iosevka_config.json"
-FONT_PATCHER_OPTIONS="--complete $FONT_CONFIG_OPTIONS $@ --output $OUTPUT_DIR -q --no-progressbars"
-FONT_PATCHER_OPTIONS="--complete $@ --output $OUTPUT_DIR -q --no-progressbars"
+FONT_GLYPHS_OPTIONS="--fontawesome --fontawesomeextension --fontlinux --octicons --powersymbols --pomicons --powerlineextra --material --weather"
+FONT_PATCHER_OPTIONS="$FONT_GLYPHS_OPTIONS $@ $FONT_CONFIG_OPTIONS --output $OUTPUT_DIR -q --no-progressbars"
 
 echo "FONT_DIR: ${FONT_DIR}"
+echo "FONT_PATCHER_OPTIONS: ${FONT_PATCHER_OPTIONS}"
 
 mkdir -p "$OUTPUT_DIR"
 

@@ -2,9 +2,12 @@
 
 export FONT_RESULT_DIR="custom"
 export USE_COMPLETE_NAME="true"
+export DEFAULT_GLYPHS_OPTIONS="--fontawesome --fontawesomeextension --fontlinux --octicons --powersymbols --pomicons --powerlineextra --material --weather"
 
 ./patch-all-iosevka      --removeligatures --configfile iosevka.config.json
 ./patch-all-iosevka-slab --removeligatures --configfile iosevka.config.json
 ./patch-all-iosevka-ss07 --removeligatures --configfile iosevka.config.json
 ./patch-all-iosevka-ss14 --removeligatures --configfile iosevka.config.json
 ./patch-all-fira-code    --removeligatures --configfile fira_code.config.json
+
+env FONT_GLYPHS_OPTIONS="$DEFAULT_GLYPHS_OPTIONS" ./patch-all-inconsolata-semi-condensed
