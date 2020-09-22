@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+./patch-all-iosevka --complete
+./patch-all-iosevka-slab --complete
+./patch-all-iosevka-ss07 --complete
+./patch-all-iosevka-ss14 --complete
