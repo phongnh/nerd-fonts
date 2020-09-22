@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-./patch-all-iosevka
-./patch-all-iosevka-slab
-./patch-all-iosevka-ss07
-./patch-all-iosevka-ss14
+./patch-all-iosevka --complete
+./patch-all-iosevka-slab --complete
+./patch-all-iosevka-ss07 --complete
+./patch-all-iosevka-ss14 --complete
 ./patch-all-jetbrains-mono
 ./patch-all-victor-mono
 ./patch-all-fira-code

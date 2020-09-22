@@ -11,5 +11,5 @@ package-lock.json
 # generated *.uuid files
 *.uuid
 out/
-patch-with-careful/
+custom/
 .DS_Store
