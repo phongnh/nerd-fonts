@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+./patch-all-jetbrains-mono
+./patch-all-victor-mono
+./patch-all-fira-code
+./patch-all-cascadia-code

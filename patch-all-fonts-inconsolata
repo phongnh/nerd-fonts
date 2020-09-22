@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+./patch-all-inconsolata
+./patch-all-inconsolata-semi-condensed
