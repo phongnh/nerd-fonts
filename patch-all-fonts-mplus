@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-./patch-all-mplus
-./patch-all-mplus-original
