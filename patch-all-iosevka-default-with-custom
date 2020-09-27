@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+export OUTPUT_ROOT_DIR="custom"
+export USE_COMPLETE_NAME="true"
+
+# Iosevka
+./patch-all-iosevka      --removeligatures --configfile iosevka.config.json
+./patch-all-iosevka-slab --removeligatures --configfile iosevka.config.json
