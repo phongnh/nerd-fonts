@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-env FONT_NAME="Iosevka-SS05-Nerd-Font"                      ./patch-iosevka-ss05 $@
-env FONT_NAME="Iosevka-SS05-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-ss05 -l $@
+env FONT_RESULT_DIR="Iosevka-SS05-Nerd-Font"                      ./patch-iosevka-ss05 $@
+env FONT_RESULT_DIR="Iosevka-SS05-Nerd-Font-Adjusted-Line-Height" ./patch-iosevka-ss05 -l $@

@@ -2,22 +2,23 @@
 
 set -e
 
-FONT_NAME="${FONT_NAME:-CascadiaCode}"
-FONT_RESULT_DIR="${FONT_RESULT_DIR:-out}"
-OUTPUT_DIR="${FONT_RESULT_DIR}/${FONT_NAME}"
+FONT_SCRIPT="$HOME/src/nerd-font-patcher/custom-font-patcher"
+FONT_RESULT_DIR="${FONT_RESULT_DIR:-CascadiaCode}"
+OUTPUT_ROOT_DIR="${OUTPUT_ROOT_DIR:-out}"
+FONT_OUTPUT_DIR="${OUTPUT_ROOT_DIR}/${FONT_RESULT_DIR}"
 FONT_DIR=~/src/fonts/CascadiaCode/ttf
 FONT_GLYPHS_OPTIONS="${FONT_GLYPHS_OPTIONS:---complete}"
-FONT_PATCHER_OPTIONS="$FONT_GLYPHS_OPTIONS $@ --output $OUTPUT_DIR -q --no-progressbars"
+FONT_PATCHER_OPTIONS="$FONT_GLYPHS_OPTIONS $@ --output $FONT_OUTPUT_DIR -q --no-progressbars"
 
 echo "FONT_DIR: $FONT_DIR"
 echo "FONT_PATCHER_OPTIONS: ${FONT_PATCHER_OPTIONS}"
 
-mkdir -p $OUTPUT_DIR
+mkdir -p $FONT_OUTPUT_DIR
 
-# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/CascadiaCode.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-Bold.ttf"
-# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-ExtraLight.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-Light.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-Regular.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-SemiBold.ttf"
-# ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-SemiLight.ttf"
+# "$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/CascadiaCode.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-Bold.ttf"
+# "$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-ExtraLight.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-Light.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-Regular.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-SemiBold.ttf"
+# "$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/static/CascadiaCode-SemiLight.ttf"

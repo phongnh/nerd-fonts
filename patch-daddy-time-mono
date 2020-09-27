@@ -2,17 +2,18 @@
 
 set -e
 
-FONT_NAME="${FONT_NAME:-Daddy-Time-Mono}"
-FONT_RESULT_DIR="${FONT_RESULT_DIR:-out}"
-OUTPUT_DIR="${FONT_RESULT_DIR}/${FONT_NAME}"
+FONT_SCRIPT="$HOME/src/nerd-font-patcher/custom-font-patcher"
+FONT_RESULT_DIR="${FONT_RESULT_DIR:-Daddy-Time-Mono}"
+OUTPUT_ROOT_DIR="${OUTPUT_ROOT_DIR:-out}"
+FONT_OUTPUT_DIR="${OUTPUT_ROOT_DIR}/${FONT_RESULT_DIR}"
 FONT_DIR=~/src/fonts/DaddyTimeMono/ttf
 FONT_GLYPHS_OPTIONS="${FONT_GLYPHS_OPTIONS:---complete}"
-FONT_PATCHER_OPTIONS="$FONT_GLYPHS_OPTIONS $@ --output $OUTPUT_DIR -q --no-progressbars"
+FONT_PATCHER_OPTIONS="$FONT_GLYPHS_OPTIONS $@ --output $FONT_OUTPUT_DIR -q --no-progressbars"
 
 echo "FONT_DIR: ${FONT_DIR}"
 echo "FONT_PATCHER_OPTIONS: ${FONT_PATCHER_OPTIONS}"
 
-mkdir -p "$OUTPUT_DIR"
+mkdir -p "$FONT_OUTPUT_DIR"
 
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/DaddyTimeMono.ttf"
-UPDATE_FONT_SUB_FAMILY=yes ~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/DaddyTimeMono.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/DaddyTimeMono.ttf"
+UPDATE_FONT_SUB_FAMILY=yes "$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/DaddyTimeMono.ttf"

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+export OUTPUT_ROOT_DIR="custom"
+export USE_COMPLETE_NAME="true"
+export DEFAULT_GLYPHS_OPTIONS="--fontawesome --fontawesomeextension --fontlinux --octicons --powersymbols --pomicons --material --weather"
+
+env FONT_GLYPHS_OPTIONS="$DEFAULT_GLYPHS_OPTIONS" \
+    FONT_RESULT_DIR="Inconsolata-Nerd-Font-Mono" \
+    FONT_FAMILY="Inconsolata" \
+    FONT_NAME="Inconsolata" \
+    ./patch-inconsolata -s
+
+env FONT_GLYPHS_OPTIONS="$DEFAULT_GLYPHS_OPTIONS" \
+    FONT_RESULT_DIR="Inconsolata-Semi-Condensed-Nerd-Font-Mono" \
+    FONT_FAMILY="Inconsolata Semi Condensed" \
+    FONT_NAME="InconsolataSemiCondensed" \
+    ./patch-inconsolata-semi-condensed -s

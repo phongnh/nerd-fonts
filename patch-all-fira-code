@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-env FONT_NAME="Fira-Code-Nerd-Font"                      ./patch-fira-code $@
-env FONT_NAME="Fira-Code-Nerd-Font-Adjusted-Line-Height" ./patch-fira-code -l $@
+env FONT_RESULT_DIR="Fira-Code-Nerd-Font"                      ./patch-fira-code $@
+env FONT_RESULT_DIR="Fira-Code-Nerd-Font-Adjusted-Line-Height" ./patch-fira-code -l $@

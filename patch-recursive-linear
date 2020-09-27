@@ -2,19 +2,20 @@
 
 set -e
 
-FONT_NAME="${FONT_NAME:-Recursive-Linear}"
-FONT_RESULT_DIR="${FONT_RESULT_DIR:-out}"
-OUTPUT_DIR="${FONT_RESULT_DIR}/${FONT_NAME}"
+FONT_SCRIPT="$HOME/src/nerd-font-patcher/custom-font-patcher"
+FONT_RESULT_DIR="${FONT_RESULT_DIR:-Recursive-Linear}"
+OUTPUT_ROOT_DIR="${OUTPUT_ROOT_DIR:-out}"
+FONT_OUTPUT_DIR="${OUTPUT_ROOT_DIR}/${FONT_RESULT_DIR}"
 FONT_DIR=~/src/fonts/Recursive-Linear
 FONT_GLYPHS_OPTIONS="${FONT_GLYPHS_OPTIONS:---complete}"
-FONT_PATCHER_OPTIONS="$FONT_GLYPHS_OPTIONS $@ --output $OUTPUT_DIR -q --no-progressbars"
+FONT_PATCHER_OPTIONS="$FONT_GLYPHS_OPTIONS $@ --output $FONT_OUTPUT_DIR -q --no-progressbars"
 
 echo "FONT_DIR: $FONT_DIR"
 echo "FONT_PATCHER_OPTIONS: ${FONT_PATCHER_OPTIONS}"
 
-mkdir -p $OUTPUT_DIR
+mkdir -p $FONT_OUTPUT_DIR
 
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-Linear.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-LinearBold.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-LinearBoldItalic.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-LinearItalic.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-Linear.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-LinearBold.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-LinearBoldItalic.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMono-LinearItalic.ttf"

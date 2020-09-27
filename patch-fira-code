@@ -2,21 +2,22 @@
 
 set -e
 
-FONT_NAME="${FONT_NAME:-Fira-Code}"
-FONT_RESULT_DIR="${FONT_RESULT_DIR:-out}"
-OUTPUT_DIR="${FONT_RESULT_DIR}/${FONT_NAME}"
+FONT_SCRIPT="$HOME/src/nerd-font-patcher/custom-font-patcher"
+FONT_RESULT_DIR="${FONT_RESULT_DIR:-Fira-Code}"
+OUTPUT_ROOT_DIR="${OUTPUT_ROOT_DIR:-out}"
+FONT_OUTPUT_DIR="${OUTPUT_ROOT_DIR}/${FONT_RESULT_DIR}"
 FONT_DIR=~/src/fonts/FiraCode/ttf
 FONT_GLYPHS_OPTIONS="--fontawesome --fontawesomeextension --fontlinux --octicons --powersymbols --pomicons --powerlineextra --material --weather"
-FONT_PATCHER_OPTIONS="$FONT_GLYPHS_OPTIONS $@ $FONT_CONFIG_OPTIONS --output $OUTPUT_DIR -q --no-progressbars"
+FONT_PATCHER_OPTIONS="$FONT_GLYPHS_OPTIONS $@ $FONT_CONFIG_OPTIONS --output $FONT_OUTPUT_DIR -q --no-progressbars"
 
 echo "FONT_DIR: $FONT_DIR"
 echo "FONT_PATCHER_OPTIONS: ${FONT_PATCHER_OPTIONS}"
 
-mkdir -p $OUTPUT_DIR
+mkdir -p $FONT_OUTPUT_DIR
 
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/FiraCode-Bold.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/FiraCode-Light.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/FiraCode-Medium.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/FiraCode-Regular.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/FiraCode-Retina.ttf"
-~/src/nerd-fonts/font-patcher $FONT_PATCHER_OPTIONS "${FONT_DIR}/FiraCode-SemiBold.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/FiraCode-Bold.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/FiraCode-Light.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/FiraCode-Medium.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/FiraCode-Regular.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/FiraCode-Retina.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/FiraCode-SemiBold.ttf"

@@ -42,6 +42,8 @@ DEBUG                  = os.environ.get('DEBUG', 'no') in ['yes', 'true']
 UPDATE_FONT_NAME       = os.environ.get('UPDATE_FONT_NAME', 'yes') in ['yes', 'true']
 UPDATE_FONT_SUB_FAMILY = os.environ.get('UPDATE_FONT_SUB_FAMILY', 'no') in ['yes', 'true']
 USE_COMPLETE_NAME      = os.environ.get('USE_COMPLETE_NAME', 'no') in ['yes', 'true']
+FONT_FAMILY            = os.environ.get('FONT_FAMILY', '')
+FONT_NAME              = os.environ.get('FONT_NAME', '')
 
 
 class font_patcher:
@@ -361,10 +363,8 @@ class font_patcher:
                 fontname = fontname + 'Sparkle'
         elif 'Inconsolata' in self.sourceFont.fullname:
             if 'Semi Condensed' in self.sourceFont.fullname:
-                # Use Inconsolata as font name
-                pass
-                # familyname = familyname + ' Semi Condensed'
-                # fontname = fontname + 'SemiCondensed'
+                familyname = familyname + ' Semi Condensed'
+                fontname = fontname + 'SemiCondensed'
             elif 'Condensed' in self.sourceFont.fullname:
                 familyname = familyname + ' Condensed'
                 fontname = fontname + 'Condensed'
@@ -422,6 +422,12 @@ class font_patcher:
             elif '1m' in self.sourceFont.fullname:
                 familyname = 'M+ 1m'
                 fontname = fontname + '1m'
+
+        if len(FONT_FAMILY) > 0:
+            familyname = FONT_FAMILY
+
+        if len(FONT_NAME) > 0:
+            fontname = FONT_NAME
 
         print()
         print(f'==> CHANGED: familyname = {familyname}')
