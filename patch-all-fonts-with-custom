@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-export OUTPUT_ROOT_DIR="custom"
-export USE_COMPLETE_NAME="true"
-
-# Fira Code
-./patch-all-fira-code --removeligatures --configfile fira_code.config.json
+./patch-all-iosevka-default-with-custom
+./patch-all-iosevka-variants-with-custom
+./patch-all-fira-code-with-custom
+./patch-all-inconsolata-with-custom
