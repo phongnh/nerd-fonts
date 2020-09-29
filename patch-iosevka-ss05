@@ -2,7 +2,7 @@
 
 set -e
 
-FONT_SCRIPT="$HOME/src/nerd-font-patcher/custom-font-patcher"
+FONT_SCRIPT="$HOME/src/nerd-fonts/font-patcher"
 FONT_RESULT_DIR="${FONT_RESULT_DIR:-Iosevka-SS05}"
 OUTPUT_ROOT_DIR="${OUTPUT_ROOT_DIR:-out}"
 FONT_OUTPUT_DIR="${OUTPUT_ROOT_DIR}/${FONT_RESULT_DIR}"
@@ -10,8 +10,8 @@ FONT_DIR=~/src/fonts/Iosevka-SS05/ttf
 FONT_GLYPHS_OPTIONS="--fontawesome --fontawesomeextension --fontlinux --octicons --powersymbols --pomicons --powerlineextra --material --weather"
 FONT_PATCHER_OPTIONS="$FONT_GLYPHS_OPTIONS $@ $FONT_CONFIG_OPTIONS --output $FONT_OUTPUT_DIR -q --no-progressbars"
 
-echo "FONT_DIR: ${FONT_DIR}"
-echo "FONT_PATCHER_OPTIONS: ${FONT_PATCHER_OPTIONS}"
+echo "==> FONT_DIR: ${FONT_DIR}"
+echo "--> ${FONT_SCRIPT} ${FONT_PATCHER_OPTIONS}"
 
 mkdir -p "$FONT_OUTPUT_DIR"
 
