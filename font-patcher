@@ -388,6 +388,9 @@ class font_patcher:
         elif 'Victor' in self.sourceFont.fullname:
             familyname = 'Victor Mono'
             fontname = 'VictorMono'
+        elif 'Julia' in self.sourceFont.fullname:
+            familyname = 'Julia Mono'
+            fontname = 'JuliaMono'
         elif 'ComicShanns' in self.sourceFont.fullname:
             familyname = 'Comic Shanns'
             fontname = 'ComicShanns'
@@ -691,6 +694,8 @@ class font_patcher:
             if fullname.startswith('JetBrains'):
                 familyname = familyname.replace('Nerd Font Mono', 'Nerd Font')
             elif fullname.startswith('Victor'):
+                familyname = familyname.replace('Nerd Font Mono', 'Nerd Font')
+            elif fullname.startswith('Julia'):
                 familyname = familyname.replace('Nerd Font Mono', 'Nerd Font')
 
             fontname = fontname.replace('NerdFontCompleteM', 'NerdFontMono')

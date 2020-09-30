@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -e
+
+FONT_SCRIPT="$HOME/src/nerd-fonts/font-patcher"
+FONT_RESULT_DIR="${FONT_RESULT_DIR:-Julia-Mono}"
+OUTPUT_ROOT_DIR="${OUTPUT_ROOT_DIR:-out}"
+FONT_OUTPUT_DIR="${OUTPUT_ROOT_DIR}/${FONT_RESULT_DIR}"
+FONT_DIR=~/src/fonts/JuliaMono/ttf
+FONT_GLYPHS_OPTIONS="${FONT_GLYPHS_OPTIONS:---complete}"
+FONT_PATCHER_OPTIONS="$FONT_GLYPHS_OPTIONS $@ --output $FONT_OUTPUT_DIR -q --no-progressbars"
+
+echo "==> FONT_DIR: $FONT_DIR"
+echo "--> ${FONT_SCRIPT} ${FONT_PATCHER_OPTIONS}"
+
+mkdir -p $FONT_OUTPUT_DIR
+
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/JuliaMono-Bold.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/JuliaMono-ExtraBold.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/JuliaMono-Light.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/JuliaMono-Medium.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/JuliaMono-Regular.ttf"
+# "$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/JuliaMono-Black.ttf"
+# "$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/JuliaMono-BoldLatin.ttf"
+# "$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/JuliaMono-RegularLatin.ttf"
