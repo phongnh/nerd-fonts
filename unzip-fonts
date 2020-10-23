@@ -55,6 +55,13 @@ function fix-ibm-plex-mono-font() {
     fi
 }
 
+function fix-sudo-font() {
+    local dir="${FONT_DIR}/Sudo"
+    if [ -d "$dir/sudo" ]; then
+        ln -sfn "$dir/sudo" "$dir/ttf"
+    fi
+}
+
 extract-xz  "mplus-063-OTF-NO_REMOVE_OVERLAP.tar.xz" "MPlus-Original"
 extract-xz  "mplus-063-OTF.tar.xz"                   "MPlus"
 extract-zip "CascadiaCode-2009.14.zip"               "CascadiaCode"
@@ -64,11 +71,13 @@ extract-zip "Inconsolata-v3.000.zip"                 "Inconsolata"
 extract-zip "JetBrainsMono-2.002.zip"                "JetBrainsMono"
 extract-zip "JuliaMono.zip"                          "JuliaMono/ttf"
 extract-zip "VictorMonoAll.zip"                      "VictorMono"
-extract-zip "ttf-iosevka-3.6.2.zip"                  "Iosevka"
-extract-zip "ttf-iosevka-slab-3.6.2.zip"             "Iosevka-Slab"
-extract-zip "ttf-iosevka-ss07-3.6.2.zip"             "Iosevka-SS07"
-extract-zip "ttf-iosevka-ss14-3.6.2.zip"             "Iosevka-SS14"
+extract-zip "sudo-v0.52.zip"                         "Sudo"
+extract-zip "ttf-iosevka-3.6.3.zip"                  "Iosevka"
+extract-zip "ttf-iosevka-slab-3.6.3.zip"             "Iosevka-Slab"
+extract-zip "ttf-iosevka-ss07-3.6.3.zip"             "Iosevka-SS07"
+extract-zip "ttf-iosevka-ss14-3.6.3.zip"             "Iosevka-SS14"
 
 fix-ibm-plex-mono-font
 fix-inconsolata-font
 fix-mplus-font
+fix-sudo-font

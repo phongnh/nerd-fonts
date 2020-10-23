@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+env FONT_RESULT_DIR="Sudo-Nerd-Font"                      ./patch-sudo $@
+env FONT_RESULT_DIR="Sudo-Nerd-Font-Adjusted-Line-Height" ./patch-sudo -l $@
