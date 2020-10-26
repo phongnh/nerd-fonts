@@ -55,6 +55,13 @@ function fix-ibm-plex-mono-font() {
     fi
 }
 
+function fix-jetbrainsmono-font() {
+    local dir="${FONT_DIR}/JetBrainsMono"
+    if [ -d "$dir/fonts/ttf" ]; then
+        ln -sfn "$dir/fonts/ttf" "$dir/ttf"
+    fi
+}
+
 function fix-sudo-font() {
     local dir="${FONT_DIR}/Sudo"
     if [ -d "$dir/sudo" ]; then
@@ -68,7 +75,7 @@ extract-zip "CascadiaCode-2009.14.zip"               "CascadiaCode"
 extract-zip "Fira_Code_v5.2.zip"                     "FiraCode"
 extract-zip "IBM-Plex-v5.1.3.zip"                    "IBM-Plex"
 extract-zip "Inconsolata-v3.000.zip"                 "Inconsolata"
-extract-zip "JetBrainsMono-2.002.zip"                "JetBrainsMono"
+extract-zip "JetBrainsMono-2.200.zip"                "JetBrainsMono"
 extract-zip "JuliaMono.zip"                          "JuliaMono/ttf"
 extract-zip "VictorMonoAll.zip"                      "VictorMono"
 extract-zip "sudo-v0.52.zip"                         "Sudo"
@@ -79,5 +86,6 @@ extract-zip "ttf-iosevka-ss14-3.7.1.zip"             "Iosevka-SS14"
 
 fix-ibm-plex-mono-font
 fix-inconsolata-font
+fix-jetbrainsmono-font
 fix-mplus-font
 fix-sudo-font
