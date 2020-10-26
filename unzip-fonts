@@ -72,10 +72,10 @@ extract-zip "JetBrainsMono-2.002.zip"                "JetBrainsMono"
 extract-zip "JuliaMono.zip"                          "JuliaMono/ttf"
 extract-zip "VictorMonoAll.zip"                      "VictorMono"
 extract-zip "sudo-v0.52.zip"                         "Sudo"
-extract-zip "ttf-iosevka-3.7.0.zip"                  "Iosevka"
-extract-zip "ttf-iosevka-slab-3.7.0.zip"             "Iosevka-Slab"
-extract-zip "ttf-iosevka-ss07-3.7.0.zip"             "Iosevka-SS07"
-extract-zip "ttf-iosevka-ss14-3.7.0.zip"             "Iosevka-SS14"
+extract-zip "ttf-iosevka-3.7.1.zip"                  "Iosevka"
+extract-zip "ttf-iosevka-slab-3.7.1.zip"             "Iosevka-Slab"
+extract-zip "ttf-iosevka-ss07-3.7.1.zip"             "Iosevka-SS07"
+extract-zip "ttf-iosevka-ss14-3.7.1.zip"             "Iosevka-SS14"
 
 fix-ibm-plex-mono-font
 fix-inconsolata-font
