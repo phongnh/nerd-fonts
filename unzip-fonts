@@ -69,20 +69,24 @@ function fix-sudo-font() {
     fi
 }
 
-extract-xz  "mplus-063-OTF-NO_REMOVE_OVERLAP.tar.xz" "MPlus-Original"
-extract-xz  "mplus-063-OTF.tar.xz"                   "MPlus"
-extract-zip "CascadiaCode-2009.14.zip"               "CascadiaCode"
-extract-zip "Fira_Code_v5.2.zip"                     "FiraCode"
-extract-zip "IBM-Plex-v5.1.3.zip"                    "IBM-Plex"
-extract-zip "Inconsolata-v3.000.zip"                 "Inconsolata"
-extract-zip "JetBrainsMono-2.200.zip"                "JetBrainsMono"
-extract-zip "JuliaMono.zip"                          "JuliaMono/ttf"
-extract-zip "VictorMonoAll.zip"                      "VictorMono"
-extract-zip "sudo-v0.52.zip"                         "Sudo"
-extract-zip "ttf-iosevka-3.7.1.zip"                  "Iosevka"
-extract-zip "ttf-iosevka-slab-3.7.1.zip"             "Iosevka-Slab"
-extract-zip "ttf-iosevka-ss07-3.7.1.zip"             "Iosevka-SS07"
-extract-zip "ttf-iosevka-ss14-3.7.1.zip"             "Iosevka-SS14"
+extract-xz  "mplus-063-OTF-NO_REMOVE_OVERLAP.tar.xz"              "MPlus-Original"
+extract-xz  "mplus-063-OTF.tar.xz"                                "MPlus"
+extract-zip "CascadiaCode-2009.22.zip"                            "CascadiaCode"
+extract-zip "FantasqueSansMono-Normal-1.8.0.zip"                  "FantasqueSansMono-Normal"
+extract-zip "FantasqueSansMono-NoLoopK-1.8.0.zip"                 "FantasqueSansMono-NoLoopK"
+extract-zip "FantasqueSansMono-LargeLineHeight-1.8.0.zip"         "FantasqueSansMono-LargeLineHeight"
+extract-zip "FantasqueSansMono-LargeLineHeight-NoLoopK-1.8.0.zip" "FantasqueSansMono-LargeLineHeight-NoLoopK"
+extract-zip "Fira_Code_v5.2.zip"                                  "FiraCode"
+extract-zip "IBM-Plex-v5.1.3.zip"                                 "IBM-Plex"
+extract-zip "Inconsolata-v3.000.zip"                              "Inconsolata"
+extract-zip "JetBrainsMono-2.200.zip"                             "JetBrainsMono"
+extract-zip "JuliaMono.zip"                                       "JuliaMono/ttf"
+extract-zip "VictorMonoAll.zip"                                   "VictorMono"
+extract-zip "sudo-v0.52.zip"                                      "Sudo"
+extract-zip "ttf-iosevka-3.7.1.zip"                               "Iosevka"
+extract-zip "ttf-iosevka-slab-3.7.1.zip"                          "Iosevka-Slab"
+extract-zip "ttf-iosevka-ss07-3.7.1.zip"                          "Iosevka-SS07"
+extract-zip "ttf-iosevka-ss14-3.7.1.zip"                          "Iosevka-SS14"
 
 fix-ibm-plex-mono-font
 fix-inconsolata-font

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -e
+
+FONT_SCRIPT="$HOME/src/nerd-fonts/font-patcher"
+FONT_RESULT_DIR="${FONT_RESULT_DIR:-FantasqueSansMono-LargeLineHeight}"
+OUTPUT_ROOT_DIR="${OUTPUT_ROOT_DIR:-out}"
+FONT_OUTPUT_DIR="${OUTPUT_ROOT_DIR}/${FONT_RESULT_DIR}"
+FONT_DIR=~/src/fonts/FantasqueSansMono-LargeLineHeight/TTF
+FONT_GLYPHS_OPTIONS="${FONT_GLYPHS_OPTIONS:---complete}"
+FONT_PATCHER_OPTIONS="$FONT_GLYPHS_OPTIONS $@ --output $FONT_OUTPUT_DIR -q --no-progressbars"
+
+echo "==> FONT_DIR: ${FONT_DIR}"
+echo "--> ${FONT_SCRIPT} ${FONT_PATCHER_OPTIONS}"
+
+mkdir -p "$FONT_OUTPUT_DIR"
+
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/FantasqueSansMono-Bold.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/FantasqueSansMono-BoldItalic.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/FantasqueSansMono-Italic.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/FantasqueSansMono-Regular.ttf"
