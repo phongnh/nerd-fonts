@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-env FONT_NAME="Fantasque-Sans-Mono-LargeLineHeight-NoLoopK-Nerd-Font"                      ./patch-fantasque-sans-mono-largelineheight-noloopk $@
-env FONT_NAME="Fantasque-Sans-Mono-LargeLineHeight-NoLoopK-Nerd-Font-Adjusted-Line-Height" ./patch-fantasque-sans-mono-largelineheight-noloopk -l $@
+env FONT_RESULT_DIR="Fantasque-Sans-Mono-LargeLineHeight-NoLoopK-Nerd-Font"                      ./patch-fantasque-sans-mono-largelineheight-noloopk $@
+env FONT_RESULT_DIR="Fantasque-Sans-Mono-LargeLineHeight-NoLoopK-Nerd-Font-Adjusted-Line-Height" ./patch-fantasque-sans-mono-largelineheight-noloopk -l $@
