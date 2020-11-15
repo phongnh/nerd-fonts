@@ -6,7 +6,7 @@ FONT_SCRIPT="$HOME/src/nerd-fonts/font-patcher"
 FONT_RESULT_DIR="${FONT_RESULT_DIR:-Iosevka-SS08}"
 OUTPUT_ROOT_DIR="${OUTPUT_ROOT_DIR:-out}"
 FONT_OUTPUT_DIR="${OUTPUT_ROOT_DIR}/${FONT_RESULT_DIR}"
-FONT_DIR=~/src/fonts/Iosevka-SS08/ttf
+FONT_DIR=~/src/fonts/Iosevka-SS08
 FONT_GLYPHS_OPTIONS="--fontawesome --fontawesomeextension --fontlinux --octicons --powersymbols --pomicons --powerlineextra --material --weather"
 FONT_PATCHER_OPTIONS="$FONT_GLYPHS_OPTIONS $@ $FONT_CONFIG_OPTIONS --output $FONT_OUTPUT_DIR -q --no-progressbars"
 
