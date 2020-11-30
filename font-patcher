@@ -372,19 +372,8 @@ class font_patcher:
             familyname = 'JetBrains Mono'
             fontname = 'JetBrainsMono'
         elif 'Rec Mono' in self.sourceFont.fullname:
-            familyname = familyname.replace('RecMono', 'Rec Mono')
-            if 'SemiCasual' in self.sourceFont.fullname:
-                familyname = familyname + ' SemiCasual'
-                fontname = fontname + 'SemiCasual'
-            elif 'Casual' in self.sourceFont.fullname:
-                familyname = familyname + ' Casual'
-                fontname = fontname + 'Casual'
-            elif 'Duotone' in self.sourceFont.fullname:
-                familyname = familyname + ' Duotone'
-                fontname = fontname + 'Duotone'
-            elif 'Linear' in self.sourceFont.fullname:
-                familyname = familyname + ' Linear'
-                fontname = fontname + 'Linear'
+            familyname = self.sourceFont.familyname
+            fontname = familyname.replace(' ', '')
         elif 'Victor' in self.sourceFont.fullname:
             familyname = 'Victor Mono'
             fontname = 'VictorMono'
