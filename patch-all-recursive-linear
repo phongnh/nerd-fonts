@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-env FONT_RESULT_DIR="Rec-Mono-Linear-Nerd-Font"                      ./patch-recursive-linear $@
-env FONT_RESULT_DIR="Rec-Mono-Linear-Nerd-Font-Adjusted-Line-Height" ./patch-recursive-linear -l $@

@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-env FONT_RESULT_DIR="Rec-Mono-SemiCasual-Nerd-Font"                      ./patch-recursive-semicasual $@
-env FONT_RESULT_DIR="Rec-Mono-SemiCasual-Nerd-Font-Adjusted-Line-Height" ./patch-recursive-semicasual -l $@

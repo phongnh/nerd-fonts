@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -e
+
+FONT_SCRIPT="$HOME/src/nerd-fonts/font-patcher"
+FONT_RESULT_DIR="${FONT_RESULT_DIR:-RecMonoDuotone}"
+OUTPUT_ROOT_DIR="${OUTPUT_ROOT_DIR:-out}"
+FONT_OUTPUT_DIR="${OUTPUT_ROOT_DIR}/${FONT_RESULT_DIR}"
+FONT_DIR=~/src/fonts/RecMonoDuotone
+FONT_GLYPHS_OPTIONS="${FONT_GLYPHS_OPTIONS:---complete}"
+FONT_PATCHER_OPTIONS="$FONT_GLYPHS_OPTIONS $@ --output $FONT_OUTPUT_DIR -q --no-progressbars"
+
+echo "==> FONT_DIR: $FONT_DIR"
+echo "--> ${FONT_SCRIPT} ${FONT_PATCHER_OPTIONS}"
+
+mkdir -p $FONT_OUTPUT_DIR
+
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoDuotone-Light.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoDuotone-LightItalic.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoDuotone-Regular.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoDuotone-Italic.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoDuotone-Medium.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoDuotone-MediumItalic.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoDuotone-SemiBold.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoDuotone-SemiBoldItalic.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoDuotone-Bold.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoDuotone-BoldItalic.ttf"

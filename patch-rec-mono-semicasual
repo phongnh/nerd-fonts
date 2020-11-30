@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -e
+
+FONT_SCRIPT="$HOME/src/nerd-fonts/font-patcher"
+FONT_RESULT_DIR="${FONT_RESULT_DIR:-RecMonoSemicasual}"
+OUTPUT_ROOT_DIR="${OUTPUT_ROOT_DIR:-out}"
+FONT_OUTPUT_DIR="${OUTPUT_ROOT_DIR}/${FONT_RESULT_DIR}"
+FONT_DIR=~/src/fonts/RecMonoSemicasual
+FONT_GLYPHS_OPTIONS="${FONT_GLYPHS_OPTIONS:---complete}"
+FONT_PATCHER_OPTIONS="$FONT_GLYPHS_OPTIONS $@ --output $FONT_OUTPUT_DIR -q --no-progressbars"
+
+echo "==> FONT_DIR: $FONT_DIR"
+echo "--> ${FONT_SCRIPT} ${FONT_PATCHER_OPTIONS}"
+
+mkdir -p $FONT_OUTPUT_DIR
+
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoSemicasual-Light.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoSemicasual-LightItalic.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoSemicasual-Regular.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoSemicasual-Italic.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoSemicasual-Medium.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoSemicasual-MediumItalic.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoSemicasual-SemiBold.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoSemicasual-SemiBoldItalic.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoSemicasual-Bold.ttf"
+"$FONT_SCRIPT" $FONT_PATCHER_OPTIONS "${FONT_DIR}/RecMonoSemicasual-BoldItalic.ttf"

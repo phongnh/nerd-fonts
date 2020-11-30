@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+env FONT_RESULT_DIR="Rec-Mono-Duotone-Nerd-Font"                      ./patch-rec-mono-duotone $@
+env FONT_RESULT_DIR="Rec-Mono-Duotone-Nerd-Font-Adjusted-Line-Height" ./patch-rec-mono-duotone -l $@

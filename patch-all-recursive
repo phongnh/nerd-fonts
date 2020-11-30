@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-./patch-all-recursive-casual
-./patch-all-recursive-duotone
-./patch-all-recursive-linear
-./patch-all-recursive-semicasual

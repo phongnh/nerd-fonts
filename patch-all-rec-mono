@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+./patch-all-rec-mono-casual
+./patch-all-rec-mono-duotone
+./patch-all-rec-mono-linear
+./patch-all-rec-mono-semicasual
